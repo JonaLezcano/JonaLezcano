@@ -5,7 +5,7 @@ from datos import CREATIVOS, VARIABLES
 
 AQUI = pathlib.Path(__file__).parent
 CSS = (AQUI / "estilo.css").read_text(encoding="utf-8")
-FECHA = "v2 · 15 de noviembre de 2026"
+FECHA = "v3 · 15 de noviembre de 2026"
 SRC = {"G": "GRABAR", "A": "ARCHIVO", "IA": "IA"}
 
 def v(t):
@@ -49,8 +49,8 @@ def doc00():
     <p class="mini" style="margin-top:4px">Con un presupuesto de USD 20 por día, lo más probable es que los ≈ USD 300 fueran el total del test (unos 15 días) y que se haya invertido el 52%. Si en cambio se invirtieron USD 300, el costo fue ≈ USD 0,92 por conversación. Lo confirmamos en el Administrador de anuncios: ese costo es la vara de las reglas de la página siguiente.</p>
     <div class="grid g3" style="margin-top:6px">
       <div class="card"><span class="lbl">Lo que funcionó</span>Hablar de plata sin vueltas. Una fiesta de $13M se vende cuando se la piensa como cuota y con la fecha asegurada.</div>
-      <div class="card"><span class="lbl">Lo que renovamos</span>El contenido, que ahora producimos nosotros: persona a cámara, archivo de fiestas reales, testimonios de madres y quinceañeras, y oferta de <b>hasta 24 cuotas</b>.</div>
-      <div class="card"><span class="lbl">Lo que sumamos</span>Dos ángulos que la competencia sostiene en pauta: <b>visita al salón</b> (Open Jano's) y <b>fechas disponibles</b> («Consultá disponibilidad HOY»).</div>
+      <div class="card"><span class="lbl">Lo que renovamos</span>El contenido, que ahora producimos nosotros: persona a cámara, archivo de fiestas reales, testimonios de madres y quinceañeras, y oferta all inclusive en <b>hasta 24 cuotas fijas</b>.</div>
+      <div class="card"><span class="lbl">Lo que sumamos</span>Dos ángulos nuevos: <b>visita al salón</b> (lo que Jano's sostiene con «Open Jano's») y <b>empatía</b>: el anfitrión/a le habla a quien sabe que la cosa está difícil.</div>
     </div>
     <div class="sec" style="margin-top:12px"><span class="n">2</span><h2>Qué está funcionando hoy</h2><span class="r">Competencia · nov 2026</span></div>
     <div class="grid g2">
@@ -87,7 +87,7 @@ def doc00():
       <tr><td>Día 3</td><td>Tasa de gancho (reproducciones de 3 s ÷ impresiones) mayor a 25%</td><td>Si un anuncio queda abajo, se reemplaza por su versión B.</td></tr>
       <tr><td>Día 5 a 7 (≈ USD 10–15 por anuncio)</td><td>Costo por conversación contra el del test 1</td><td>Si es más de 1,5 veces el del test 1, se pausa. Si está por debajo, se deja correr.</td></tr>
       <tr><td>Día 14</td><td>Conversaciones calificadas (dieron fecha e invitados), visitas y señas</td><td>Una sola campaña con presupuesto de campaña (CBO) de USD 20 y los 3 o 4 mejores anuncios.</td></tr>
-      <tr><td>Día 21 a 28</td><td>Frecuencia mayor a 3 o costo en subida</td><td>Renovación: ganchos C y D, actualización del calendario 2027 y una variante con IA.</td></tr>
+      <tr><td>Día 21 a 28</td><td>Frecuencia mayor a 3 o costo en subida</td><td>Renovación: ganchos C y D, nuevas frases de testimonios y una variante con IA.</td></tr>
     </table>
     <p class="mini" style="margin-top:4px">Si el cliente quiere crecer, se suma un 20% de presupuesto cada 3 días y nunca sobre un anuncio que empeora. Con USD 20 por día y el costo del test 1 se esperan entre 20 y 40 conversaciones por día.</p>
 """)
@@ -101,7 +101,7 @@ def doc00():
         <li>Responder en menos de 5 minutos, con respuestas rápidas por ángulo: /cuotas, /congelar, /incluye, /visita, /fecha.</li>
         <li>La primera pregunta siempre es «¿para qué fecha y cuántos invitados?».</li></ul></div>
     </div>
-    <div class="nota roja" style="margin-top:6px">Meta pide que la escasez y el congelamiento de precio sean reales. Las fechas tachadas del creativo 06 y la fecha límite del 02 se confirman por escrito con el cliente antes de publicar. Las escenas hechas con IA llevan rótulo, como en Menutti.</div><div class="sec" style="margin-top:12px"><span class="n">6</span><h2>Calendario de trabajo</h2><span class="r">Del cuestionario al lanzamiento</span></div>
+    <div class="nota roja" style="margin-top:6px">Meta pide que las promociones con fecha límite sean reales: la fecha del creativo 02 se confirma por escrito con el cliente antes de publicar. Las escenas hechas con IA llevan rótulo, como en Menutti.</div><div class="sec" style="margin-top:12px"><span class="n">6</span><h2>Calendario de trabajo</h2><span class="r">Del cuestionario al lanzamiento</span></div>
     <table>
       <tr><th>Semana</th><th>Qué pasa</th><th>Quién</th><th>Listo</th></tr>
       <tr><td>Semana 0</td><td>Cuestionario al cliente · Javi revisa el archivo de fiestas y testimonios (lo que ya tenemos)</td><td>Jona · Javi</td><td><span class="box"></span></td></tr>
@@ -118,10 +118,10 @@ def doc00():
         <li><b>02 Plan de grabación</b>: qué se graba, qué sale del archivo, tomas para transformar con IA, jornada y equipo.</li>
         <li><b>03 Plan de edición</b>: reglas como en Menutti (subtítulos, rótulos, sonido, exportación), flujo de IA y mapa de cada video.</li></ul></div>
       <div class="card oro"><span class="lbl">Confirmado / a confirmar</span><ul class="lim">
-        <li>✔ Financiación en <b>hasta 24 cuotas</b>.</li>
+        <li>✔ Financiación en <b>hasta 24 cuotas fijas</b>, paquete all inclusive.</li>
         <li>✔ Archivo de fiestas reales y testimonios de quinceañeras y madres.</li>
         <li>✔ Presupuesto: hasta USD 20 por día.</li>
-        <li>? Si las cuotas son fijas o con ajuste, anticipo, precio de referencia y fechas 2027 ocupadas.</li>
+        <li>? Precio «desde», mínimo de invitados, anticipo, si se congela el precio y las 3 cosas para mostrar en la visita.</li>
         <li>? Inversión real del test 1.</li></ul></div>
     </div>""")
     return documento("Trebelno · 00 Estrategia y campaña", p1 + p2 + p3)
@@ -187,8 +187,8 @@ def doc01():
         "Cada creativo ocupa dos hojas: en la primera, el gancho, sus variantes y el guion segundo a segundo; en la segunda, el texto del anuncio y cómo lo medimos. Los datos en amarillo se reemplazan por los números reales del salón el día de la grabación.","quien pone la cara · Javi · Jona"),
     """<div class="sec"><span class="n">★</span><h2>Lo que se repite en los seis</h2><span class="r">Leer antes de grabar</span></div>
     <div class="grid g3">
-      <div class="card oro"><span class="lbl">La oferta</span><span class="serif" style="font-size:13pt">Hasta 24 cuotas</span><br>Reservás la fecha con <span class="var">ANTICIPO</span>. Si las cuotas tienen ajuste, se dice «hasta 24 cuotas» y nunca «precio fijo».</div>
-      <div class="card"><span class="lbl">El cierre</span>Siempre a WhatsApp, con una palabra clave por creativo: FECHA, CONGELAR, DETALLE, VISITA. Se graban 2 cierres: uno para 15 años y otro para casamientos.</div>
+      <div class="card oro"><span class="lbl">La oferta</span><span class="serif" style="font-size:13pt">All inclusive · hasta 24 cuotas fijas</span><br>Desde <span class="var">INVITADOS</span> invitados, desde <span class="var">TOTAL</span>. Reservás la fecha con <span class="var">ANTICIPO</span>.</div>
+      <div class="card"><span class="lbl">El cierre</span>Siempre a WhatsApp, con una palabra clave por creativo: FECHA, CONGELAR, DETALLE, VISITA, ESCRIBIME. Se graban 2 cierres: uno para 15 años y otro para casamientos.</div>
       <div class="card"><span class="lbl">Cómo se habla</span>Una persona del salón le habla a una sola persona. Frases cortas, con voseo, sin leer. Si se traba, se repite la frase entera.</div>
     </div>
     <div class="nota" style="margin-top:8px">En cada guion, la fuente del plano: <span class="src G">GRABAR</span> se graba en la jornada · <span class="src A">ARCHIVO</span> sale del material de fiestas reales y testimonios · <span class="src IA">IA</span> se transforma con IA (ver 03 Plan de edición).</div>
@@ -198,7 +198,7 @@ def doc01():
     filas = "".join(f'<tr><td><span class="var" style="white-space:normal">{k}</span></td><td>{d}</td><td>{w}</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr>' for k,d,w in VARIABLES)
     datos = pagina("""<div class="sec"><span class="n">D</span><h2>Datos a reemplazar</h2><span class="r">Completar antes de grabar</span></div>
     <p class="lead">Cada casilla amarilla es un dato del salón. Se completa acá una sola vez y se usa el mismo valor en los guiones, los textos del anuncio y las respuestas de WhatsApp.</p>
-    <div class="nota">Confirmado: <b>hasta 24 cuotas</b>. Referencia del test 1: $13.000.000 en 12 cuotas = $1.083.333 por mes; en 24 cuotas fijas serían $541.667 por mes. Falta confirmar si las cuotas son fijas.</div>""",
+    <div class="nota">Confirmado: <b>all inclusive en hasta 24 cuotas fijas</b>. Referencia del test 1: $13.000.000 en 12 cuotas = $1.083.333 por mes; en 24 cuotas fijas serían $541.667 por mes.</div>""",
     f"""<table style="table-layout:fixed"><colgroup><col style="width:46mm"><col><col style="width:20mm"><col style="width:46mm"><col style="width:9mm"></colgroup>
     <tr><th>Dato</th><th>Qué es</th><th>Dónde</th><th>Valor real</th><th>OK</th></tr>{filas}</table>
     <div class="sep"></div>
@@ -209,22 +209,21 @@ def doc01():
 # 02 · PLAN DE GRABACIÓN
 # ======================================================================
 ARCHIVO = [
- ("Entrada de la quinceañera / de los novios","01 04 05"),("Vals y ceremonia de velas","04 06"),("Pista llena, carioca, humo y luces","01 02 05 06"),
- ("Mesa dulce y barra en acción","01 02 03 05"),("Platos servidos y catering","03"),("DJ, luces y pantallas","03"),
- ("Salón armado sin gente (de cualquier evento)","01 02"),("Invitados en la recepción","05"),
- ("Testimonios de quinceañeras","04"),("Testimonios de madres","04"),("Fotos del fotógrafo (para animar con IA)","03 04 05"),
+ ("Entrada de la quinceañera / de los novios","01 04"),("Vals y ceremonia de velas","04 06"),("Pista llena, carioca, humo y luces","01 02 03"),
+ ("Sector salón: mesas armadas (general y detalles)","01 02 03"),("Sector cocina: platos que salen y se sirven","03"),("Sector barra en acción","02 03"),
+ ("Sector DJ, luces y pantallas","03"),("Sector ambientación: centros de mesa y mesa dulce","01 03"),("Sector coordinación en acción","03"),
+ ("Testimonios de quinceañeras","04 06"),("Testimonios de madres (y la frase sobre el pago)","04 06"),("Madres emocionadas durante la fiesta","06"),
 ]
 TOMAS = {
  "01":[("G","Gancho A, B y C, 3 tomas de cada uno, en la pista con luces"),("G","Primer plano de la calculadora con el número real (celular en modo no molestar)"),("G","Cierre a cámara: versión 15 años y versión casamiento")],
  "02":[("G","Frapera con hielo y etiqueta (5 tomas: el hielo nunca cae igual)"),("G","Plano medio en la barra: fecha límite y cierre"),("G","Detalle de la etiqueta escrita a mano"),("IA","Foto fija de la frapera, para el hielo en cámara lenta (gancho C)")],
- "03":[("G","Apertura de puertas desde adentro y desde afuera"),("G","Salón con las mesas armadas (ítem 1)"),("G","Coordinador/a real con la planilla del evento"),("G","Cierre en la pista, 2 versiones"),("IA","Salón vacío en toma fija, para crear las 3 ambientaciones (ítem 5)"),("G","Fotos fijas de cada ítem, para el carrusel")],
+ "03":[("A","Del archivo: 1 clip de 3–5 s por sector (salón, cocina, barra, DJ, ambientación, coordinación y pista)"),("G","Solo si falta algún sector en el archivo: grabarlo en la jornada"),("G","Cierre en la pista, 2 versiones"),("G","Fotos fijas de cada sector, para el carrusel")],
  "04":[("G","Oferta y cierre del anfitrión/a en la pista (17–30 s), 2 versiones"),("A","Todo lo demás sale del archivo: no se graban testimonios nuevos")],
- "05":[("G","POV continuo con gimbal: vereda → puerta → recepción → mesas → pista (3 tomas completas, sin cortes)"),("G","Encendido de luces sincronizado con el técnico"),("G","Pista vacía en toma fija, en el mismo encuadre que el archivo de la pista llena (gancho B)"),("G","Cierre del anfitrión/a: visita con turno / jornada abierta")],
- "06":[("G","Tachado de 3 fechas distintas, 3 tomas de cada una"),("G","Plano general: anfitrión/a + calendario"),("G","Primer plano del mes más pedido"),("G","Cierre a cámara"),("G","Foto del calendario completo, para el estático")],
+ "05":[("G","Walk & talk completo con gimbal, del gancho al cierre (3 tomas)"),("G","Detalle de cada una de las 3 cosas (2 o 3 planos por cosa)"),("G","Gancho con los 3 dedos, 3 tomas"),("G","Cierre en la pista a cámara, 2 versiones")],
+ "06":[("G","3 tomas largas seguidas del guion completo, sin cortar (se elige la más natural)"),("G","Gancho A, B, C y D sueltos"),("G","Planos de escucha: mira la mesa, piensa, sonríe (para tapar cortes)"),("G","Cierre inclinándose hacia cámara")],
 }
 IA_TOMAS = [
- ("Salón vacío · 3 encuadres fijos","Durante el armado: general, pista y una mesa. Trípode marcado con cinta en el piso.","Repetir los mismos 3 encuadres con el salón armado → transición vacío → armado y 3 ambientaciones creadas con IA (15, casamiento, temática).","03 05"),
- ("Pista vacía con luces · fija","El mismo encuadre que una toma de archivo de la pista llena (llevar el archivo en el celular para calcarlo).","Transición «así está hoy → así va a estar tu fiesta».","05"),
+ ("Salón vacío · 3 encuadres fijos","Durante el armado: general, pista y una mesa. Trípode marcado con cinta en el piso.","Repetir los mismos 3 encuadres con el salón armado → transición vacío → armado y ambientaciones creadas con IA (15, casamiento, temática) para la renovación.","03"),
  ("Anfitrión/a para avatar y voz","2 min a cámara en plano medio, mirando a lente, luz pareja y fondo quieto + 3 min de lectura en voz alta (el texto de esta misma hoja).","Avatar y voz clonada (ElevenLabs) para hacer ganchos C y D y versiones nuevas sin volver a grabar. Requiere autorización escrita.","Todos"),
  ("Mano con celular · pantalla verde","Celular con imagen verde a pantalla completa; la mano toca y desliza. 3 tomas de 8 s.","Reemplazo de pantalla por una conversación de WhatsApp de ejemplo: «mandás tu fecha y te respondemos».","01 06"),
  ("Frapera · foto fija","Foto en alta calidad, de cerca, con luz de la barra.","Hielo cayendo en cámara lenta (imagen a video).","02"),
@@ -242,7 +241,7 @@ def doc02():
       <div class="card"><span class="lbl">Testimonios: qué marcar</span><ul class="check one">
         <li>Transcribir todos en Premiere (Transcribir secuencia, español)</li>
         <li>Marcar las 5 frases más fuertes de madres y las 3 de quinceañeras</li>
-        <li>Buscar si alguna menciona el pago, las cuotas o la organización (gancho D del creativo 04)</li>
+        <li>Encontrar la frase que habla del pago o de las cuotas: abre el creativo 04</li><li>Elegir 1 clip de 3–5 s por sector para el creativo 03</li>
         <li>Pasarle las frases a Jona para cerrar el guion del 04</li></ul></div>
       <div class="card"><span class="lbl">Permisos</span><ul class="check one">
         <li>Confirmar que esas familias autorizaron el uso en publicidad paga</li>
@@ -250,14 +249,14 @@ def doc02():
         <li>Autorización escrita del anfitrión/a para avatar y voz con IA</li></ul></div>
     </div>""")
     bloques = [
-     ("0","Durante el armado","Tomas fijas del salón vacío para IA (3 encuadres marcados con cinta)","03 05"),
-     ("1","Salón armado","Los mismos 3 encuadres + general, travelling entre mesas, detalles de centros de mesa","03 05"),
-     ("2","Luces y humo","POV completo vereda → pista (3 tomas) + pista vacía fija calcando el archivo","05"),
-     ("3","Pista","Anfitrión/a: ganchos y cierres de 01, 03, 04 y 05 (versiones 15 años y casamiento)","01 03 04 05"),
+     ("0","Durante el armado","Tomas fijas del salón vacío para IA (3 encuadres marcados con cinta)","03"),
+     ("1","Salón armado","Los mismos 3 encuadres + sectores que falten en el archivo","03"),
+     ("2","Recorrido","Walk & talk de las 3 cosas + detalles de cada una","05"),
+     ("3","Pista con luces","Anfitrión/a: ganchos y cierres de 01, 03, 04 y 05 (versiones 15 años y casamiento)","01 03 04 05"),
      ("4","Barra","Frapera con hielo, plano medio, detalle de la etiqueta, foto fija","02"),
-     ("5","Pared","Calendario 2027: tachados, plano general, primer plano y foto","06"),
+     ("5","Mesa con luz baja","Charla sentada: 3 tomas largas, ganchos sueltos y planos de escucha","06"),
      ("6","Rincón con buena luz","Anfitrión/a para avatar (2 min) y voz (3 min de lectura)","Todos"),
-     ("7","Cierre","Celular con pantalla verde · cenital de mesa · fotos fijas para el carrusel","01 03 06"),
+     ("7","Cierre","Celular con pantalla verde · cenital de mesa · fotos fijas para el carrusel","01 03"),
     ]
     filas = "".join(f'<tr><td class="n">{b}</td><td><b>{d}</b></td><td>{q}</td><td>{c}</td><td><span class="box"></span></td></tr>' for b,d,q,c in bloques)
     tomas = "".join(f'<div class="card avoid"><span class="lbl">Creativo {n}</span><ul class="check one">' + "".join(f'<li>{chips(f)} {v(t)}</li>' for f,t in TOMAS[n]) + "</ul></div>" for n in TOMAS)
@@ -277,14 +276,14 @@ def doc02():
         <li>Una foto del mismo encuadre: la mayoría de las herramientas parten de una imagen.</li>
         <li>Sin marcas ajenas a la vista (botellas, logos de proveedores).</li></ul></div>
       <div class="card"><span class="lbl">Texto para la grabación de voz (bloque 6)</span>
-        <p style="font-size:8.3pt">«Hola, soy <span class="var">NOMBRE</span>, de Trebelno Recepciones. Tu fiesta 2027 la podés pagar en hasta 24 cuotas. Reservás tu fecha con <span class="var">ANTICIPO</span> y el resto lo vas pagando mes a mes. ¿Cuánto sale tu fiesta por mes? Escribinos tu fecha por WhatsApp. Los sábados de 2027 se están reservando. Vení a conocer el salón antes de decidir.»</p>
+        <p style="font-size:8.3pt">«Hola, soy <span class="var">NOMBRE</span>, de Trebelno Recepciones. Sé que la cosa está difícil. Tu fiesta 2027 la podés pagar en hasta 24 cuotas fijas. Reservás tu fecha con <span class="var">ANTICIPO</span> y el resto lo vas pagando mes a mes. ¿Cuánto sale tu fiesta por mes? Escribinos tu fecha por WhatsApp. Vení a conocer el salón antes de decidir.»</p>
         <p class="mini">Leerlo 3 veces: tranquilo, con energía y como en una charla. Rincón sin eco, micrófono corbatero, 30 s de silencio del ambiente al final.</p></div>
     </div>
     <div class="sec" style="margin-top:12px"><span class="n">5</span><h2>Técnica, equipo y checklist</h2><span class="r">Lo mismo que en Menutti</span></div>
     <div class="grid g3">
       <div class="card"><span class="lbl">Técnica</span><ul class="lim"><li>Vertical 9:16 nativo, 4K a 30 cuadros por segundo.</li><li>Corbatero en todas las tomas habladas + 30 s de ambiente por locación.</li><li>Dejar 2 s antes y después de cada frase.</li></ul></div>
-      <div class="card"><span class="lbl">Equipo</span><ul class="check one"><li>Celular/cámara 4K + respaldo</li><li>Gimbal</li><li>Trípode y cinta para marcar</li><li>2 corbateros</li><li>LED con difusor</li><li>Calendario 2027 (A1/A0) y fibrón bordó</li><li>Frapera, hielo y etiqueta</li><li>Celular con pantalla verde</li></ul></div>
-      <div class="card"><span class="lbl">Antes de arrancar</span><ul class="check one"><li>Números confirmados (01 Guiones · Datos)</li><li>Salón armado y técnico de luces</li><li>Fechas reales tachadas en el calendario</li><li>Vestuario liso, sin logos, que contraste con el salón</li><li>Autorizaciones impresas</li><li>Archivo de la pista llena en el celular, para calcar el encuadre</li></ul></div>
+      <div class="card"><span class="lbl">Equipo</span><ul class="check one"><li>Celular/cámara 4K + respaldo</li><li>Gimbal</li><li>Trípode y cinta para marcar</li><li>2 corbateros</li><li>LED con difusor</li><li>Luz cálida para la mesa del 06</li><li>Frapera, hielo y etiqueta</li><li>Celular con pantalla verde</li></ul></div>
+      <div class="card"><span class="lbl">Antes de arrancar</span><ul class="check one"><li>Números confirmados (01 Guiones · Datos)</li><li>Salón armado y técnico de luces</li><li>Las 3 cosas de la visita (05) confirmadas</li><li>Vestuario liso, sin logos, que contraste con el salón</li><li>Autorizaciones impresas</li><li>Lista de sectores que faltan en el archivo</li></ul></div>
     </div>""")
     return documento("Trebelno · 02 Plan de grabación", p1 + p2 + p3)
 
@@ -309,8 +308,8 @@ def doc03():
       <div class="phone"><div class="luz"></div><div class="persona"></div><div class="zs"></div>
         <span class="etq" style="top:12%">y 270</span><span class="etq" style="top:65.5%">y 1250</span>
         <div class="pill">Presentador generado con IA</div>
-        <div class="oferta">HASTA 24 CUOTAS<br><span style="font-weight:500;font-size:5.6pt">Reservá tu fecha 2027</span></div>
-        <div class="sub">Tu fiesta 2027 en hasta<br><em>24 CUOTAS</em></div>
+        <div class="oferta">HASTA 24 CUOTAS FIJAS<br><span style="font-weight:500;font-size:5.6pt">Reservá tu fecha 2027</span></div>
+        <div class="sub">Tu fiesta 2027 en hasta<br><em>24 CUOTAS FIJAS</em></div>
         <div class="botones"><i></i><i></i><i></i></div><div class="cap"></div></div>
       <div style="flex:1">
         <h3 style="margin-top:0">Subtítulos (como en Menutti, no los de motion graphics)</h3>
@@ -325,7 +324,7 @@ def doc03():
         <h3>Rótulos (los armás vos)</h3>
         <ul class="lim">
           <li>Avisos: píldora negra al 60% con texto blanco, Montserrat Medium 24 px, arriba a la izquierda (desde x 72, y 352).</li>
-          <li><b>Tarjeta de oferta</b> (la que en Menutti era la de 72 hs): fondo rojo de marca, texto blanco: «HASTA 24 CUOTAS · Reservá tu fecha 2027». Va desde el CTA hasta el final, arriba de la cabeza (y 470 a 625).</li>
+          <li><b>Tarjeta de oferta</b> (la que en Menutti era la de 72 hs): fondo rojo de marca, texto blanco: «HASTA 24 CUOTAS FIJAS · Reservá tu fecha 2027». Va desde el CTA hasta el final, arriba de la cabeza (y 470 a 625).</li>
           <li>Placa final de 1 a 1,5 s: <span class="var">FONDO PLACA</span>, logo en PNG y «Agenda 2027 · Escribinos por WhatsApp».</li>
         </ul>
       </div>
@@ -367,7 +366,7 @@ def doc03():
     <ul class="check one" style="font-size:9pt">
       <li>9:16 y 1080 × 1920</li>
       <li>El gancho se entiende en los primeros 1 a 3 s, sin sonido</li>
-      <li>Queda claro que habla un salón de fiestas y que la fiesta se paga en hasta 24 cuotas</li>
+      <li>Queda claro que habla un salón de fiestas y que la fiesta all inclusive se paga en hasta 24 cuotas fijas</li>
       <li>Ningún número sin confirmar (los amarillos del guion ya reemplazados)</li>
       <li>Subtítulos al estilo Menutti, legibles y dentro de la zona segura; palabras clave en rojo</li>
       <li>La voz se escucha clara en el parlante del celular</li>

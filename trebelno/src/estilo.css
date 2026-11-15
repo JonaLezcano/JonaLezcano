@@ -111,16 +111,16 @@ td.n{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--bordo
 .gancho-tit{ display:flex; justify-content:space-between; align-items:baseline; }
 
 .variantes{ counter-reset:v; margin:0 0 8px; padding:0; list-style:none; }
-.variantes li{ display:grid; grid-template-columns:20px 1fr 1fr; gap:8px; padding:4px 0; border-bottom:1px solid var(--linea); font-size:8.5pt; }
+.variantes li{ display:grid; grid-template-columns:20px 1fr 1fr; gap:8px; padding:3px 0; border-bottom:1px solid var(--linea); font-size:8.5pt; }
 .variantes li b.l{ font-family:'JetBrains Mono',monospace; color:var(--bordo); }
 .variantes li.rec{ background:var(--oro-claro); }
 .variantes .scr{ font-weight:700; text-transform:uppercase; font-size:7.8pt; letter-spacing:.03em; color:var(--tinta-2); }
 
 /* Guion en riel */
 .riel{ position:relative; margin:4px 0 8px; }
-.beat{ display:grid; grid-template-columns:17mm 34mm 1fr 44mm; gap:0; border-bottom:1px solid var(--linea); background:#fff; }
-.beat > div{ padding:5px 7px; font-size:8.5pt; }
-.beat .tc{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:8pt; background:var(--tinta); color:var(--papel); text-align:center; }
+.beat{ display:grid; grid-template-columns:17mm 41mm 1fr 39mm; gap:0; border-bottom:1px solid var(--linea); background:#fff; }
+.beat > div{ padding:4px 7px; font-size:8.4pt; }
+.beat .tc{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:7.2pt; white-space:nowrap; background:var(--tinta); color:var(--papel); text-align:center; }
 .beat .pl{ color:var(--tinta-2); font-size:8pt; border-right:1px solid var(--linea); }
 .beat .dice{ font-family:'Fraunces',serif; font-size:9.6pt; }
 .beat .lee{ font-weight:800; text-transform:uppercase; font-size:7.8pt; letter-spacing:.02em; background:var(--papel-2); border-left:2px solid var(--oro); }
