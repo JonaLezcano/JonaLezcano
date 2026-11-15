@@ -1,0 +1,623 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Trebelno · Kit de rodaje Agenda 2027</title><style>/* Sistema visual "Claqueta" · Trebelno Recepciones · Agenda 2027 */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&display=swap');
+
+:root{
+  --papel:#faf6ef;
+  --papel-2:#f2ebdf;
+  --tinta:#1d1a17;
+  --tinta-2:#4a443d;
+  --tinta-3:#8a8178;
+  --linea:#ddd3c4;
+  --bordo:#7a1f2b;
+  --bordo-claro:#f3e3e3;
+  --oro:#b8914a;
+  --oro-claro:#f6edda;
+  --salvia:#2f5e55;
+  --salvia-claro:#e2ede9;
+  --var:#fff0a8;
+}
+@page{ size:A4; margin:14mm 14mm 16mm 14mm; }
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:#fff;
+  color:var(--tinta);
+  font-family:'Inter',sans-serif;
+  font-size:9.2pt;
+  line-height:1.45;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+h1,h2,h3,.serif{ font-family:'Fraunces',Georgia,serif; font-weight:600; margin:0; }
+p{ margin:0 0 6px; }
+.page{ page-break-after:always; break-after:page; position:relative; }
+.page:last-child{ page-break-after:auto; break-after:auto; }
+.avoid{ break-inside:avoid; page-break-inside:avoid; }
+
+/* Variables a reemplazar */
+.var{ background:var(--var); border-bottom:1.5px solid #d9b800; padding:0 3px; border-radius:2px;
+  font-family:'JetBrains Mono',monospace; font-size:.86em; font-weight:600; white-space:nowrap; color:#3a3000; }
+.validar{ color:var(--bordo); font-weight:700; font-size:.8em; letter-spacing:.04em; }
+
+/* Portada */
+.portada{ height:265mm; display:flex; flex-direction:column; justify-content:space-between;
+  border:1.2px solid var(--tinta); padding:16mm 14mm; background:
+  repeating-linear-gradient(135deg, transparent 0 14px, rgba(29,26,23,.025) 14px 15px), var(--papel); }
+.portada .claqueta{ display:flex; height:16mm; border:1.2px solid var(--tinta); }
+.portada .claqueta span{ flex:1; background:var(--tinta); transform:skewX(-28deg); margin:0 6px; }
+.portada .claqueta span:nth-child(even){ background:var(--papel); }
+.portada .kicker{ letter-spacing:.32em; font-size:8pt; text-transform:uppercase; color:var(--tinta-2); }
+.portada h1{ font-size:44pt; line-height:1.02; font-weight:800; letter-spacing:-.01em; margin-top:8mm; }
+.portada h1 em{ font-style:italic; color:var(--bordo); font-weight:600; }
+.portada .sub{ font-size:12pt; color:var(--tinta-2); max-width:130mm; margin-top:6mm; }
+.portada .pie{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1.2px solid var(--tinta); }
+.portada .pie div{ padding:8px 10px 0 0; }
+.portada .pie b{ display:block; font-size:7pt; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; }
+.portada .pie span{ font-family:'Fraunces',serif; font-size:11pt; }
+
+/* Encabezado de sección */
+.sec{ display:flex; align-items:baseline; gap:10px; border-bottom:1.2px solid var(--tinta); padding-bottom:5px; margin:0 0 10px; }
+.sec .n{ font-family:'JetBrains Mono',monospace; font-size:8pt; color:var(--bordo); font-weight:700; }
+.sec h2{ font-size:19pt; }
+.sec .r{ margin-left:auto; font-size:7.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--tinta-3); }
+h3{ font-size:11.5pt; margin:10px 0 5px; }
+.lead{ font-size:10.5pt; color:var(--tinta-2); max-width:165mm; }
+
+/* Tarjetas y grillas */
+.grid{ display:grid; gap:8px; }
+.g2{ grid-template-columns:1fr 1fr; } .g3{ grid-template-columns:repeat(3,1fr); } .g4{ grid-template-columns:repeat(4,1fr); }
+.card{ background:#fff; border:1px solid var(--linea); border-radius:4px; padding:8px 10px; }
+.card.tinta{ background:var(--tinta); color:var(--papel); border-color:var(--tinta); }
+.card.oro{ background:var(--oro-claro); border-color:#e6d3ad; }
+.card.bordo{ background:var(--bordo-claro); border-color:#e8c9c9; }
+.card.salvia{ background:var(--salvia-claro); border-color:#c6dad3; }
+.lbl{ display:block; font-size:6.8pt; letter-spacing:.18em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; margin-bottom:2px; }
+.card.tinta .lbl{ color:#bfb5a8; }
+.big{ font-family:'Fraunces',serif; font-size:22pt; font-weight:800; line-height:1; }
+ul.lim{ margin:2px 0 0; padding-left:14px; } ul.lim li{ margin-bottom:3px; }
+.chip{ display:inline-block; font-size:7pt; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+  padding:2px 7px; border-radius:20px; border:1px solid currentColor; margin-right:4px; }
+.chip.eco{ color:var(--bordo); } .chip.nuevo{ color:var(--salvia); } .chip.neutro{ color:var(--tinta-2); }
+
+/* Tablas */
+table{ width:100%; border-collapse:collapse; font-size:8.6pt; }
+th{ text-align:left; font-size:6.8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tinta-3); font-weight:600;
+  border-bottom:1.2px solid var(--tinta); padding:4px 6px; }
+td{ border-bottom:1px solid var(--linea); padding:5px 6px; vertical-align:top; }
+td.n{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--bordo); width:26px; }
+.escribir{ border-bottom:1px dotted var(--tinta-3); min-width:60mm; height:16px; }
+
+/* Ficha de creativo */
+.cab{ display:grid; grid-template-columns:30mm 1fr auto; gap:10px; align-items:stretch; border:1.2px solid var(--tinta); margin-bottom:8px; }
+.cab .num{ background:var(--tinta); color:var(--papel); display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.cab.nuevo .num{ background:var(--salvia); } .cab.eco .num{ background:var(--bordo); }
+.cab .num b{ font-family:'Fraunces',serif; font-size:34pt; font-weight:800; line-height:1; }
+.cab .num small{ font-size:6.5pt; letter-spacing:.2em; text-transform:uppercase; opacity:.8; }
+.cab .tit{ padding:7px 0; }
+.cab .tit h2{ font-size:17pt; line-height:1.1; margin:3px 0 4px; }
+.cab .tit .idea{ color:var(--tinta-2); font-size:9pt; }
+.cab .estado{ border-left:1.2px solid var(--tinta); padding:7px 10px; font-size:7.6pt; display:flex; flex-direction:column; justify-content:center; gap:3px; min-width:30mm; }
+.box{ display:inline-block; width:9px; height:9px; border:1.2px solid var(--tinta); margin-right:5px; vertical-align:-1px; background:#fff; }
+
+.ficha{ display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--linea); background:#fff; margin-bottom:8px; }
+.ficha div{ padding:5px 8px; border-right:1px solid var(--linea); border-bottom:1px solid var(--linea); font-size:8.4pt; }
+.ficha div:nth-child(4n){ border-right:none; }
+
+.gancho{ display:grid; grid-template-columns:1fr 1fr 1fr; border:1.2px solid var(--bordo); background:var(--bordo-claro); margin-bottom:8px; }
+.nuevo-sec .gancho{ border-color:var(--salvia); background:var(--salvia-claro); }
+.gancho > div{ padding:7px 9px; border-right:1px dashed rgba(0,0,0,.15); }
+.gancho > div:last-child{ border-right:none; }
+.gancho .t{ font-family:'Fraunces',serif; font-size:11pt; font-weight:600; line-height:1.25; }
+.gancho .pantalla{ font-family:'Inter',sans-serif; font-weight:800; letter-spacing:.02em; font-size:10.5pt; text-transform:uppercase; }
+.gancho-tit{ display:flex; justify-content:space-between; align-items:baseline; }
+
+.variantes{ counter-reset:v; margin:0 0 8px; padding:0; list-style:none; }
+.variantes li{ display:grid; grid-template-columns:20px 1fr 1fr; gap:8px; padding:4px 0; border-bottom:1px solid var(--linea); font-size:8.5pt; }
+.variantes li b.l{ font-family:'JetBrains Mono',monospace; color:var(--bordo); }
+.variantes li.rec{ background:var(--oro-claro); }
+.variantes .scr{ font-weight:700; text-transform:uppercase; font-size:7.8pt; letter-spacing:.03em; color:var(--tinta-2); }
+
+/* Guion en riel */
+.riel{ position:relative; margin:4px 0 8px; }
+.beat{ display:grid; grid-template-columns:17mm 34mm 1fr 44mm; gap:0; border-bottom:1px solid var(--linea); background:#fff; }
+.beat > div{ padding:5px 7px; font-size:8.5pt; }
+.beat .tc{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:8pt; background:var(--tinta); color:var(--papel); text-align:center; }
+.beat .pl{ color:var(--tinta-2); font-size:8pt; border-right:1px solid var(--linea); }
+.beat .dice{ font-family:'Fraunces',serif; font-size:9.6pt; }
+.beat .lee{ font-weight:800; text-transform:uppercase; font-size:7.8pt; letter-spacing:.02em; background:var(--papel-2); border-left:2px solid var(--oro); }
+.beat.h > div{ background:var(--papel-2); font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; font-family:'Inter',sans-serif; padding:3px 7px; }
+.beat.h .tc{ background:var(--papel-2); color:var(--tinta-3); }
+
+.check{ list-style:none; padding:0; margin:0; columns:2; column-gap:14px; }
+.check li{ break-inside:avoid; padding:2px 0 2px 16px; position:relative; font-size:8.4pt; }
+.check li::before{ content:''; position:absolute; left:0; top:4px; width:8px; height:8px; border:1.2px solid var(--tinta); background:#fff; }
+.check.one{ columns:1; }
+
+.ad{ border:1.2px solid var(--tinta); background:#fff; }
+.ad .row{ display:grid; grid-template-columns:30mm 1fr; border-bottom:1px solid var(--linea); }
+.ad .row:last-child{ border-bottom:none; }
+.ad .row > div{ padding:5px 8px; font-size:8.5pt; }
+.ad .row > div:first-child{ background:var(--papel-2); font-size:6.8pt; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--tinta-2); }
+
+.nota{ border-left:3px solid var(--oro); padding:4px 9px; background:var(--oro-claro); font-size:8.4pt; margin-bottom:6px; }
+.nota.roja{ border-color:var(--bordo); background:var(--bordo-claro); }
+.mini{ font-size:7.6pt; color:var(--tinta-3); }
+.fuente{ font-size:7.4pt; color:var(--tinta-3); word-break:break-all; }
+.sep{ height:8px; }
+
+/* Cuestionario */
+.q{ display:grid; grid-template-columns:22px 1fr; gap:6px; padding:5px 0 3px; border-bottom:1px solid var(--linea); break-inside:avoid; }
+.q .qn{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--bordo); font-size:8.4pt; padding-top:1px; }
+.q .qt{ font-weight:600; font-size:9pt; }
+.q .qt .star{ color:var(--oro); }
+.q .qh{ font-size:7.8pt; color:var(--tinta-3); margin-top:1px; }
+.q .lineas{ margin-top:4px; }
+.q .lineas i{ display:block; height:15px; border-bottom:1px dotted #b9ae9f; }
+.q .opts{ margin-top:3px; font-size:8.2pt; color:var(--tinta-2); }
+.q .opts span{ margin-right:12px; white-space:nowrap; }
+</style></head><body>
+
+<section class="page"><div class="portada">
+  <div>
+    <div class="claqueta"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div style="margin-top:12mm" class="kicker">Kit de rodaje · Meta Ads · Campaña 02</div>
+    <h1>Agenda 2027,<br><em>en cuotas</em> y con<br>fecha propia.</h1>
+    <p class="sub">Seis creativos con guion, lista de tomas, texto del anuncio y mensaje de WhatsApp. Los datos en amarillo se reemplazan por los números reales del salón el día de la grabación.</p>
+  </div>
+  <div>
+    <div class="grid g3" style="margin-bottom:10mm">
+      <div class="card tinta"><span class="lbl">Test 1</span><span class="big">325</span><br>mensajes</div>
+      <div class="card tinta"><span class="lbl">Venta cerrada</span><span class="big">$13M</span><br>en 12 cuotas</div>
+      <div class="card tinta"><span class="lbl">Esta campaña</span><span class="big">4 + 2</span><br>creativos</div>
+    </div>
+    <div class="pie">
+      <div><b>Cliente</b><span>Trebelno Recepciones</span></div>
+      <div><b>Campaña</b><span>Agenda 2027</span></div>
+      <div><b>Versión</b><span>v1 · Noviembre 2026</span></div>
+      <div><b>Dirección</b><span>JFL IT</span></div>
+    </div>
+  </div>
+</div></section>
+<section class="page">
+  <div class="sec"><span class="n">01</span><h2>De dónde partimos y qué cambiamos</h2><span class="r">Estrategia</span></div>
+  <div class="grid g4" style="margin-bottom:8px">
+    <div class="card"><span class="lbl">Inversión test 1</span><span class="big" style="font-size:18pt">USD 300</span><br><span class="mini">52% del presupuesto total</span></div>
+    <div class="card"><span class="lbl">Mensajes</span><span class="big">325</span><br><span class="mini">≈ USD 0,92 por conversación</span></div>
+    <div class="card"><span class="lbl">Ventas</span><span class="big">1</span><br><span class="mini">$13.000.000 · 12 cuotas</span></div>
+    <div class="card oro"><span class="lbl">Ángulo ganador</span><span class="serif" style="font-size:13pt">Oferta económica</span><br><span class="mini">cuotas · precio accesible</span></div>
+  </div>
+  <p class="mini">Costo por conversación calculado sobre USD 300; si los USD 300 eran el total y se usó el 52% (≈ USD 156), el costo baja a ≈ USD 0,48. Lo confirmamos en el Administrador de anuncios antes del lanzamiento.</p>
+  <h3>La lectura</h3>
+  <div class="grid g3">
+    <div class="card"><span class="lbl">Lo que funcionó</span>Hablar de plata sin vueltas. Una fiesta de $13M se vende cuando se la ve como cuota mensual y con la fecha asegurada.</div>
+    <div class="card"><span class="lbl">Lo que renovamos</span>El contenido. Mantenemos el ángulo y la estructura, pero grabamos nosotros: persona a cámara, números en pantalla y CTA a WhatsApp con mensaje precargado.</div>
+    <div class="card"><span class="lbl">Lo que sumamos</span>Dos ángulos que la competencia sostiene en pauta: <b>visita al salón</b> (Open Jano's) y <b>fechas disponibles</b> («Consultá disponibilidad HOY»).</div>
+  </div>
+  <h3>Los seis creativos</h3>
+  <table><tr><th>#</th><th>Ángulo</th><th>Creativo</th><th>Gancho en pantalla</th><th>CTA</th></tr><tr><td class="n">01</td><td><span class="chip eco">Ganador</span> cuota mensual</td>
+      <td><b>Hacé la cuenta: tu fiesta 2027 por mes</b></td><td>¿CUÁNTO SALE TU FIESTA 2027 POR MES?</td><td>WhatsApp · Escribinos tu fecha</td></tr><tr><td class="n">02</td><td><span class="chip eco">Ganador</span> congelar el precio</td>
+      <td><b>Congelá hoy el precio de tu fiesta 2027</b></td><td>CONGELÁ EL PRECIO DE TU FIESTA 2027</td><td>WhatsApp · Escribí CONGELAR</td></tr><tr><td class="n">03</td><td><span class="chip eco">Ganador</span> todo lo que incluye</td>
+      <td><b>Todo esto entra en <span class="var">CUOTA</span> por mes</b></td><td>TODO ESTO POR <span class="var">CUOTA</span>/MES</td><td>WhatsApp · Pedí el detalle del paquete</td></tr><tr><td class="n">04</td><td><span class="chip eco">Ganador</span> prueba social</td>
+      <td><b>«Lo pagamos en 12 cuotas»: una fiesta real</b></td><td>LO PAGAMOS EN <span class="var">CUOTAS</span> CUOTAS</td><td>WhatsApp · Escribinos y armamos el tuyo</td></tr><tr><td class="n">05</td><td><span class="chip nuevo">Nuevo</span> visita al salón</td>
+      <td><b>Entrá a tu fiesta 2027 antes de reservarla</b></td><td>ENTRÁ A TU FIESTA 2027</td><td>WhatsApp · Escribí VISITA</td></tr><tr><td class="n">06</td><td><span class="chip nuevo">Nuevo</span> fechas disponibles 2027</td>
+      <td><b>Agenda 2027: estos sábados ya no están</b></td><td>AGENDA 2027 · YA SE ESTÁ LLENANDO</td><td>WhatsApp · Mandanos tu fecha</td></tr></table>
+  <div class="sep"></div>
+  <div class="nota">Cada creativo se graba con <b>4 ganchos</b>. Se editan el A (recomendado) y el B como anuncios separados: 6 creativos = 12 anuncios. Los ganchos C y D quedan grabados para la primera renovación (semana 3–4).</div>
+</section>
+<section class="page">
+  <div class="sec"><span class="n">02</span><h2>Qué está funcionando hoy</h2><span class="r">Competencia · Nov 2026</span></div>
+  <p class="lead">Relevamiento en la Biblioteca de anuncios de Meta (Argentina, anuncios activos al 15/11/2026) y en fuentes del rubro en Argentina y afuera.</p>
+  <h3>Jano's Eventos · el líder local</h3>
+  <div class="grid g2">
+    <div class="card">
+      <span class="lbl">Lo que vimos en su pauta</span>
+      <ul class="lim">
+        <li>≈ 226 anuncios activos entre sus páginas (Jano's Eventos, János, Janos Eventos y Jano's Corporativos).</li>
+        <li>Suben <b>tandas de 10 a 20 variantes el mismo día</b>: testean por volumen y dejan correr las que ganan.</li>
+        <li>Todo va a <b>conversación</b>: «Escribinos y conocé el paquete ideal para vos», «Consultá por disponibilidad HOY», «Chateá con nosotros».</li>
+        <li>Segmentan por tipo de evento («Tus 15 Únicos») y tienen una línea aparte para empresas (coffee break).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="lbl">Su oferta</span>
+      <ul class="lim">
+        <li>Paquetes por niveles: <b>All inclusive, VIP y Ultra VIP</b>, con salón, catering, barra, ambientación, sonido, luces y coordinación.</li>
+        <li><b>Open Jano's</b>: jornadas para conocer el salón por dentro y recibir una propuesta en el momento.</li>
+        <li>Financiación con anticipo (≈ 30%) y el resto en cuotas, con la fecha y el valor fijados al contratar (datos de notas de años anteriores).</li>
+      </ul>
+    </div>
+  </div>
+  <h3>Mercado local · salones pymes</h3>
+  <div class="card">
+    ≈ 2.900 anuncios activos con «salón de eventos» en Argentina. La mayoría son placas con precio y «fechas disponibles», sin persona a cámara ni recorrido. <b>Ahí está nuestra ventaja:</b> una cara del salón, números claros y un video que muestra el lugar armado. También se ve el uso de días de semana más baratos («de lunes a jueves»): conviene preguntarle al cliente si tiene precios por día (cuestionario, bloque C).
+  </div>
+  <h3>Tendencias del rubro</h3>
+  <div class="grid g2">
+    <div class="card"><span class="lbl">Argentina</span><ul class="lim">
+      <li>Los 15 años se reservan con hasta <b>3 años de anticipación</b>.</li>
+      <li>La estrategia más usada es <b>congelar el precio</b> con un anticipo y pagar el resto antes del evento.</li></ul></div>
+    <div class="card"><span class="lbl">Internacional</span><ul class="lim">
+      <li>Video vertical de recorrido para captar y testimonio para retargeting: un caso de Meta (Wedding Park) reporta +90% de conversiones.</li>
+      <li>Paquete con precio cerrado + carrusel + públicos similares: un salón (Hermozo, caso de Meta) multiplicó por 4 sus reservas mensuales.</li>
+      <li>Renovar creativos cada 2–4 semanas para que la campaña no se estanque.</li></ul></div>
+  </div>
+  <h3>Lo que tomamos</h3>
+  <table>
+    <tr><th>Señal del mercado</th><th>Cómo la usamos</th></tr>
+    <tr><td>Volumen de variantes (Jano's)</td><td>4 ganchos por creativo y 2 editados por creativo desde el día 1.</td></tr>
+    <tr><td>«Conocé el paquete ideal»</td><td>Creativo 03: todo lo que incluye, ítem por ítem.</td></tr>
+    <tr><td>Open Jano's</td><td>Creativo 05: recorrido POV + invitación a visitar.</td></tr>
+    <tr><td>«Consultá disponibilidad HOY»</td><td>Creativo 06: calendario 2027 con fechas reales tachadas.</td></tr>
+    <tr><td>Congelamiento de precio</td><td>Creativo 02: precio de hoy con fecha límite.</td></tr>
+    <tr><td>Testimonio en retargeting</td><td>Creativo 04: va a quienes ya interactuaron (videos al 50% y conversaciones).</td></tr>
+  </table>
+  <div class="sep"></div>
+  <p class="fuente">Fuentes: Biblioteca de anuncios de Meta (consulta 15/11/2026) · janoseventos.com/15-anos · janoseventos.com/open-janos-conoce-el-salon-por-dentro-antes-de-tomar-la-decision · cronista.com/negocios/la-estrategia-mas-usada-para-congelar-precios-de-cumpleanos-de-15-y-casamientos · viapais.com.ar (costos Jano's) · iprofesional.com/actualidad/377462 · casestudies.com (Facebook: Wedding Park, Hermozo) · tripleseat.com/blog · eventtemple.com/blog</p>
+</section>
+<section class="page">
+  <div class="sec"><span class="n">03</span><h2>Estructura de campaña</h2><span class="r">Meta Ads · Mensajes</span></div>
+  <div class="grid g3">
+    <div class="card tinta"><span class="lbl">Campaña</span><span class="serif" style="font-size:13pt">Interacción · Mensajes</span><br>Destino WhatsApp. Presupuesto por conjunto (ABO) las 2 primeras semanas para que los ángulos nuevos reciban inversión.</div>
+    <div class="card"><span class="lbl">Conjunto A · 65%</span><b>Oferta económica</b><br>Creativos 01, 02 y 03 (A y B) + el mejor anuncio del test 1 como control.</div>
+    <div class="card"><span class="lbl">Conjunto B · 25%</span><b>Ángulos nuevos</b><br>Creativos 05 y 06 (A y B). Mismo público que A para comparar parejo.</div>
+  </div>
+  <div class="grid g3" style="margin-top:8px">
+    <div class="card"><span class="lbl">Conjunto C · 10%</span><b>Retargeting</b><br>Creativo 04 (testimonio) + 06. Público: video visto al 50%, interacción con la cuenta y conversaciones de los últimos 60 días.</div>
+    <div class="card"><span class="lbl">Público</span>Amplio con Advantage+ y radio de <span class="var">KM</span> km alrededor del salón. Edad <span class="var">EDAD</span> según tipo de evento (padres de 15 años / parejas). Sin intereses al inicio.</div>
+    <div class="card"><span class="lbl">Ubicaciones</span>Advantage+. Prioridad Reels e Historias de Instagram y Facebook (9:16); Feed con 4:5.</div>
+  </div>
+  <h3>Reglas de decisión</h3>
+  <table>
+    <tr><th>Momento</th><th>Mirar</th><th>Decisión</th></tr>
+    <tr><td>Día 3–4 (≈ USD 15 por anuncio)</td><td>Tasa de gancho (reproducciones de 3 s ÷ impresiones) &gt; 25%</td><td>Si está por debajo, se pausa ese gancho y entra el C o el D.</td></tr>
+    <tr><td>Día 7</td><td>Costo por conversación vs. test 1 (≈ USD 0,92)</td><td>Más de 1,5× → pausar. Por debajo → +20% de presupuesto cada 72 h.</td></tr>
+    <tr><td>Día 14</td><td>Conversaciones calificadas (dieron fecha e invitados) y visitas agendadas</td><td>Pasar a CBO con los 4–5 mejores anuncios. El ángulo nuevo que gane suma 2 creativos en la renovación.</td></tr>
+    <tr><td>Día 21–28</td><td>Frecuencia &gt; 3 o costo en subida</td><td>Renovación: ganchos C/D + actualización del calendario 2027.</td></tr>
+  </table>
+  <h3>WhatsApp: donde se gana la venta</h3>
+  <div class="grid g2">
+    <div class="card"><span class="lbl">Etiquetas en WhatsApp Business</span><ul class="lim">
+      <li>Nuevo · Calificado (dio fecha + invitados) · Visita agendada · Presupuesto enviado · Seña · Perdido.</li>
+      <li>Con estas etiquetas medimos <b>costo por conversación calificada</b> y <b>costo por seña</b>, no solo por mensaje.</li></ul></div>
+    <div class="card"><span class="lbl">Respuesta en menos de 5 minutos</span><ul class="lim">
+      <li>Respuestas rápidas por ángulo: /cuotas, /congelar, /incluye, /visita, /fecha.</li>
+      <li>Primera pregunta siempre: «¿Para qué fecha y cuántos invitados?»</li>
+      <li>Si se puede, cargar la seña como evento de compra (API de conversiones) para que Meta optimice hacia ventas.</li></ul></div>
+  </div>
+  <div class="sep"></div>
+  <div class="nota roja">Política de Meta: la escasez y el congelamiento tienen que ser reales. Las fechas tachadas del creativo 06 y la fecha límite del 02 se confirman con el cliente por escrito antes de publicar.</div>
+</section>
+<section class="page">
+  <div class="sec"><span class="n">04</span><h2>Plan de la jornada de grabación</h2><span class="r">Un día · un salón armado</span></div>
+  <p class="lead">Todo se graba en una jornada con el salón armado como para un evento. El orden sigue la luz y el armado, no el número del creativo.</p>
+  <table>
+    <tr><th>Bloque</th><th>Hora</th><th>Qué se graba</th><th>Creativos</th><th>Listo</th></tr>
+    <tr><td class="n">1</td><td><span class="var">HORA</span></td><td>Llegada, salón armado intacto: planos generales, travelling entre mesas, detalles de centros de mesa</td><td>03 05</td><td><span class="box"></span></td></tr>
+    <tr><td class="n">2</td><td>+1 h</td><td>POV completo entrada → pista con encendido de luces y humo (3 tomas completas)</td><td>05</td><td><span class="box"></span></td></tr>
+    <tr><td class="n">3</td><td>+2 h</td><td>Anfitrión/a en la pista: ganchos y cierres de 01, 03 y 05</td><td>01 03 05</td><td><span class="box"></span></td></tr>
+    <tr><td class="n">4</td><td>+3 h</td><td>Barra: frapera con hielo, barra en acción, plano medio</td><td>02 03</td><td><span class="box"></span></td></tr>
+    <tr><td class="n">5</td><td>+4 h</td><td>Calendario 2027 en la pared: tachados, plano general y primer plano</td><td>06</td><td><span class="box"></span></td></tr>
+    <tr><td class="n">6</td><td>+5 h</td><td>Entrevista al cliente (testimonio) con 2 cámaras + paseo por el salón</td><td>04</td><td><span class="box"></span></td></tr>
+    <tr><td class="n">7</td><td>+6 h</td><td>Detalles de catering y mesa dulce · fotos fijas para carrusel y estáticos</td><td>03 06</td><td><span class="box"></span></td></tr>
+  </table>
+  <div class="grid g2" style="margin-top:10px">
+    <div class="card"><span class="lbl">Equipo</span><ul class="check">
+      <li>Celular 4K 9:16 (+ uno de respaldo)</li><li>Gimbal / estabilizador</li><li>2 micrófonos corbateros</li><li>Luz LED de rostro + difusor</li>
+      <li>Trípode</li><li>Baterías y cargadores</li><li>Calendario 2027 impreso (A1/A0)</li><li>Fibrón grueso bordó</li><li>Frapera + hielo</li><li>Etiqueta de precio</li><li>Autorizaciones de imagen impresas</li><li>Este kit impreso</li></ul></div>
+    <div class="card"><span class="lbl">Antes de grabar</span><ul class="check one">
+      <li>Cuestionario respondido y números confirmados (sección 05)</li>
+      <li>Salón armado completo y técnico de luces disponible</li>
+      <li>Anfitrión/a definido/a, con el guion leído (se dice con sus palabras, no se lee)</li>
+      <li>Cliente para el testimonio confirmado, con autorización firmada</li>
+      <li>Fechas reales ocupadas de 2027 marcadas en el calendario</li>
+      <li>Vestuario: liso, sin logos, color que contraste con el salón</li>
+      <li>Grabar 2 cierres por creativo: 15 años y casamiento/cumpleaños</li></ul></div>
+  </div>
+  <h3>Reglas de edición para los 6</h3>
+  <div class="grid g3">
+    <div class="card"><span class="lbl">Ritmo</span>Corte cada 2–3 s. El gancho entra en el cuadro 1: nada de logo ni introducción al principio.</div>
+    <div class="card"><span class="lbl">Texto</span>Subtítulos siempre (más del 80% se ve sin sonido). El texto principal va en el tercio medio, fuera de la zona de botones.</div>
+    <div class="card"><span class="lbl">Cierre</span>Placa final 1,5 s: logo + «Agenda 2027» + ícono de WhatsApp. Sin teléfono escrito (el botón ya lo resuelve).</div>
+  </div>
+</section>
+
+<section class="page eco-sec">
+  <div class="cab eco">
+    <div class="num"><small>Creativo</small><b>01</b><small>Ganador</small></div>
+    <div class="tit"><span class="chip eco">Ángulo ganador</span><span class="chip neutro">cuota mensual</span>
+      <h2>Hacé la cuenta: tu fiesta 2027 por mes</h2><div class="idea">Bajamos el precio total a una cuota. El que mira deja de pensar en «cuánto sale» y pasa a pensar en «cuánto por mes»: es la misma lógica que ya vendió en el test 1.</div></div>
+    <div class="estado"><span><i class="box"></i>Grabado</span><span><i class="box"></i>Editado A</span><span><i class="box"></i>Editado B</span><span><i class="box"></i>Aprobado</span><span><i class="box"></i>En Meta</span></div>
+  </div>
+  <div class="ficha"><div><span class="lbl">Objetivo</span>Mensaje por WhatsApp pidiendo presupuesto en cuotas</div><div><span class="lbl">Duración</span>25–30 s</div><div><span class="lbl">Quién</span>Anfitrión/a de Trebelno a cámara</div><div><span class="lbl">Dónde</span>Pista del salón, luces encendidas</div><div><span class="lbl">Audio</span>Tecleo real de la calculadora + golpe de música en el número</div><div><span class="lbl">CTA</span>Escribinos tu fecha</div><div><span class="lbl">Destino</span>Clic a WhatsApp</div><div><span class="lbl">Exportar</span>9:16 · 4:5 · 1:1 (estático)</div></div>
+  <div class="gancho-tit"><h3>El gancho · 0 a 3 s</h3><span class="mini">Lo que decide si el anuncio se mira o se pasa</span></div>
+  <div class="gancho avoid">
+    <div><span class="lbl">Se dice</span><div class="t">«¿Cuánto sale por mes una fiesta en 2027? Hacé la cuenta conmigo.»</div></div>
+    <div><span class="lbl">Se lee en pantalla</span><div class="pantalla">¿CUÁNTO SALE TU FIESTA 2027 POR MES?</div></div>
+    <div><span class="lbl">Se ve</span>Anfitrión/a en la pista vacía con luces de color; gira el celular hacia cámara con la calculadora: <span class="var">TOTAL</span> ÷ <span class="var">CUOTAS</span></div>
+  </div>
+  <span class="lbl">Cuatro ganchos para grabar · se editan A y B</span>
+  <ul class="variantes"><li class="rec"><b class="l">A ★</b><span>«¿Cuánto sale por mes una fiesta en 2027? Hacé la cuenta conmigo.»</span><span class="scr">¿Cuánto sale tu fiesta 2027 por mes?</span></li><li class=""><b class="l">B</b><span>«Tu fiesta 2027, completa, desde <span class="var">CUOTA</span> por mes.»</span><span class="scr">Tu fiesta 2027 desde <span class="var">CUOTA</span>/mes</span></li><li class=""><b class="l">C</b><span>Dolor: «¿Postergaste la fiesta porque pensaste que no llegabas con la plata?»</span><span class="scr">¿Pensaste que no llegabas?</span></li><li class=""><b class="l">D</b><span>Resultado primero: plano de la fiesta llena + «Esto, en <span class="var">CUOTAS</span> cuotas.»</span><span class="scr">Esto, en <span class="var">CUOTAS</span> cuotas</span></li></ul>
+  <p class="mini">★ A: la pregunta obliga a hacer la cuenta propia y la calculadora retiene hasta el número.</p>
+  <h3>Guion</h3>
+  <div class="riel"><div class="beat h"><div class="tc">Tiempo</div><div class="pl">Plano</div><div>Qué se dice</div><div>Texto en pantalla</div></div><div class="beat avoid"><div class="tc">0–3 s</div><div class="pl">Pista vacía, gira el celular</div><div class="dice">Gancho A</div><div class="lee">¿CUÁNTO SALE TU FIESTA 2027 POR MES?</div></div><div class="beat avoid"><div class="tc">3–8 s</div><div class="pl">Plano medio, camina hacia las mesas</div><div class="dice">«Una fiesta completa para <span class="var">INVITADOS</span> invitados: <span class="var">INCLUYE 1</span>, <span class="var">INCLUYE 2</span> y <span class="var">INCLUYE 3</span>.»</div><div class="lee">PAQUETE COMPLETO · <span class="var">INVITADOS</span> INVITADOS</div></div><div class="beat avoid"><div class="tc">8–14 s</div><div class="pl">Primer plano de la calculadora</div><div class="dice">«Son <span class="var">TOTAL</span>. Dividido en <span class="var">CUOTAS</span> cuotas: <span class="var">CUOTA</span> por mes.»</div><div class="lee"><span class="var">CUOTAS</span> CUOTAS DE <span class="var">CUOTA</span></div></div><div class="beat avoid"><div class="tc">14–21 s</div><div class="pl">B-roll: salón armado, pista con luces (VO)</div><div class="dice">«Reservás tu fecha con <span class="var">ANTICIPO</span> y el resto lo vas pagando mes a mes, hasta el día de la fiesta.»</div><div class="lee">RESERVÁS CON <span class="var">ANTICIPO</span></div></div><div class="beat avoid"><div class="tc">21–28 s</div><div class="pl">Primer plano del anfitrión/a</div><div class="dice">«Escribinos por WhatsApp tu fecha y la cantidad de invitados, y te pasamos el presupuesto exacto.»</div><div class="lee">ESCRIBINOS TU FECHA 2027 →</div></div></div>
+</section>
+<section class="page eco-sec">
+  <div class="sec"><span class="n">01</span><h2 style="font-size:15pt">Hacé la cuenta: tu fiesta 2027 por mes</h2><span class="r">Producción y anuncio</span></div>
+  <div class="grid g2 avoid">
+    <div class="card"><span class="lbl">Lista de tomas</span><ul class="check one"><li>Gancho A, B y C (3 tomas cada uno)</li><li>Calculadora en primer plano con el número real</li><li>Caminata pista → mesas</li><li>Cierre a cámara (2 versiones: 15 años y casamiento)</li><li>Salón armado: plano general fijo 10 s</li><li>Luces de pista encendiéndose</li></ul></div>
+    <div class="card"><span class="lbl">Utilería y preparación</span><ul class="check one"><li>Celular con calculadora en pantalla grande</li><li>Salón armado como para evento (mesas, centros)</li><li>Luces de pista y humo</li></ul></div>
+  </div>
+  <h3>El anuncio en Meta</h3><p class="mini">Mismo texto para las versiones A y B. Primera línea = gancho: es lo único que se ve antes del «ver más».</p>
+  <div class="ad avoid">
+    <div class="row"><div>Texto principal</div><div>¿Cuánto sale tu fiesta 2027 por mes? 🎉 En Trebelno Recepciones la armás completa —<span class="var">INCLUYE 1</span>, <span class="var">INCLUYE 2</span> y <span class="var">INCLUYE 3</span>— y la pagás en <span class="var">CUOTAS</span> cuotas de <span class="var">CUOTA</span>. Reservás la fecha con <span class="var">ANTICIPO</span>. Escribinos tu fecha y cantidad de invitados y hoy mismo te mandamos el presupuesto exacto.</div></div>
+    <div class="row"><div>Título</div><div><b>Tu fiesta 2027 en <span class="var">CUOTAS</span> cuotas</b></div></div>
+    <div class="row"><div>Descripción</div><div>Reservá tu fecha con <span class="var">ANTICIPO</span></div></div>
+    <div class="row"><div>Botón</div><div>Enviar mensaje de WhatsApp</div></div>
+    <div class="row"><div>Mensaje precargado</div><div>¡Hola! Quiero el presupuesto en cuotas para mi fiesta 2027. Mi fecha es: ___</div></div>
+  </div>
+  <div class="sep"></div>
+  <div class="grid g2 avoid">
+    <div class="nota"><b>Por qué funciona.</b> Es el ángulo que ya trajo 325 mensajes y la venta de $13.000.000 en 12 cuotas. Lo renovamos con persona a cámara (casi nadie en el rubro lo hace) y con un número que el que mira puede verificar en pantalla.</div>
+    <div class="nota roja"><b>Notas y plan B.</b> El número de cuota tiene que ser el real del paquete de referencia. Si el salón ajusta las cuotas, decirlo en pantalla («cuotas con ajuste <span class="var">AJUSTE</span>»): un número que después cambia genera mensajes que no cierran.</div>
+  </div>
+  <h3>Cómo lo medimos</h3>
+  <table class="avoid"><tr><th>Indicador</th><th>Meta</th><th>Versión A</th><th>Versión B</th></tr>
+    <tr><td>Tasa de gancho (3 s ÷ impresiones)</td><td>&gt; 25%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Retención al 50% del video</td><td>&gt; 15%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Costo por conversación</td><td>&lt; USD 0,92</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Conversaciones calificadas (fecha + invitados)</td><td>&gt; 40%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Visitas agendadas / señas</td><td>—</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+  </table>
+</section>
+<section class="page eco-sec">
+  <div class="cab eco">
+    <div class="num"><small>Creativo</small><b>02</b><small>Ganador</small></div>
+    <div class="tit"><span class="chip eco">Ángulo ganador</span><span class="chip neutro">congelar el precio</span>
+      <h2>Congelá hoy el precio de tu fiesta 2027</h2><div class="idea">Contra la inflación, la decisión de hoy ahorra plata. La urgencia es real y tiene fecha: el precio de hoy vale hasta <span class="var">FECHA LIMITE</span>.</div></div>
+    <div class="estado"><span><i class="box"></i>Grabado</span><span><i class="box"></i>Editado A</span><span><i class="box"></i>Editado B</span><span><i class="box"></i>Aprobado</span><span><i class="box"></i>En Meta</span></div>
+  </div>
+  <div class="ficha"><div><span class="lbl">Objetivo</span>Que pidan reservar la fecha con el precio de hoy</div><div><span class="lbl">Duración</span>22–28 s</div><div><span class="lbl">Quién</span>Anfitrión/a a cámara</div><div><span class="lbl">Dónde</span>Barra del salón</div><div><span class="lbl">Audio</span>Hielo real cayendo en la frapera; voz seca los primeros 2 s</div><div><span class="lbl">CTA</span>Escribí CONGELAR</div><div><span class="lbl">Destino</span>Clic a WhatsApp</div><div><span class="lbl">Exportar</span>9:16 · 4:5</div></div>
+  <div class="gancho-tit"><h3>El gancho · 0 a 3 s</h3><span class="mini">Lo que decide si el anuncio se mira o se pasa</span></div>
+  <div class="gancho avoid">
+    <div><span class="lbl">Se dice</span><div class="t">«Tu fiesta de 2027 no va a costar lo mismo que hoy. Salvo que la congeles.»</div></div>
+    <div><span class="lbl">Se lee en pantalla</span><div class="pantalla">CONGELÁ EL PRECIO DE TU FIESTA 2027</div></div>
+    <div><span class="lbl">Se ve</span>Primer plano: el anfitrión/a hunde una etiqueta de precio en la frapera con hielo de la barra y levanta la vista a cámara</div>
+  </div>
+  <span class="lbl">Cuatro ganchos para grabar · se editan A y B</span>
+  <ul class="variantes"><li class="rec"><b class="l">A ★</b><span>«Tu fiesta de 2027 no va a costar lo mismo que hoy. Salvo que la congeles.»</span><span class="scr">Congelá el precio de tu fiesta 2027</span></li><li class=""><b class="l">B</b><span>«Todo aumenta. Tu fiesta no tiene por qué.»</span><span class="scr">Todo aumenta. Tu fiesta, no.</span></li><li class=""><b class="l">C</b><span>«Si tu fiesta es en 2027, el mejor momento para pagarla es ahora.»</span><span class="scr">Fiesta 2027, precio de hoy</span></li><li class=""><b class="l">D</b><span>Cuenta regresiva: «Quedan <span class="var">DIAS</span> días para reservar 2027 con precio de hoy.»</span><span class="scr">Quedan <span class="var">DIAS</span> días</span></li></ul>
+  <p class="mini">★ A + frapera con hielo: la metáfora se entiende sin sonido y usa un objeto propio del salón.</p>
+  <h3>Guion</h3>
+  <div class="riel"><div class="beat h"><div class="tc">Tiempo</div><div class="pl">Plano</div><div>Qué se dice</div><div>Texto en pantalla</div></div><div class="beat avoid"><div class="tc">0–3 s</div><div class="pl">Frapera con hielo, etiqueta de precio</div><div class="dice">Gancho A</div><div class="lee">CONGELÁ EL PRECIO DE TU FIESTA 2027</div></div><div class="beat avoid"><div class="tc">3–9 s</div><div class="pl">Plano medio en la barra</div><div class="dice">«Si reservás antes del <span class="var">FECHA LIMITE</span>, tu fiesta 2027 queda con el precio de hoy.» <span class="validar">[VALIDAR]</span></div><div class="lee">PRECIO DE HOY HASTA EL <span class="var">FECHA LIMITE</span></div></div><div class="beat avoid"><div class="tc">9–16 s</div><div class="pl">B-roll: salón armado, mesa dulce (VO)</div><div class="dice">«Pagás <span class="var">ANTICIPO</span> para reservar y el resto en <span class="var">CUOTAS</span> cuotas <span class="var">AJUSTE</span>.»</div><div class="lee"><span class="var">ANTICIPO</span> + <span class="var">CUOTAS</span> CUOTAS</div></div><div class="beat avoid"><div class="tc">16–22 s</div><div class="pl">B-roll: pista llena de una fiesta real</div><div class="dice">«Mientras todo sube, tu fiesta ya está pagándose.»</div><div class="lee">TU FIESTA, YA EN MARCHA</div></div><div class="beat avoid"><div class="tc">22–28 s</div><div class="pl">Primer plano en la barra</div><div class="dice">«Escribinos CONGELAR por WhatsApp y te reservamos la fecha.»</div><div class="lee">ESCRIBÍ «CONGELAR» →</div></div></div>
+</section>
+<section class="page eco-sec">
+  <div class="sec"><span class="n">02</span><h2 style="font-size:15pt">Congelá hoy el precio de tu fiesta 2027</h2><span class="r">Producción y anuncio</span></div>
+  <div class="grid g2 avoid">
+    <div class="card"><span class="lbl">Lista de tomas</span><ul class="check one"><li>Gancho con la frapera (5 tomas: el hielo nunca cae igual)</li><li>Plano medio en la barra, 2 lecturas</li><li>Detalle: etiqueta con el precio escrito a mano</li><li>Mesa dulce armada</li><li>Pista llena (material de eventos, con permiso)</li></ul></div>
+    <div class="card"><span class="lbl">Utilería y preparación</span><ul class="check one"><li>Frapera con hielo real</li><li>Etiqueta de precio de cartulina con <span class="var">TOTAL</span></li><li>Barra iluminada</li></ul></div>
+  </div>
+  <h3>El anuncio en Meta</h3><p class="mini">Mismo texto para las versiones A y B. Primera línea = gancho: es lo único que se ve antes del «ver más».</p>
+  <div class="ad avoid">
+    <div class="row"><div>Texto principal</div><div>¿Tu fiesta es en 2027? Congelá hoy el precio 🧊 Si reservás antes del <span class="var">FECHA LIMITE</span> en Trebelno Recepciones, tu fecha queda con el precio de hoy: <span class="var">ANTICIPO</span> para reservar y el resto en <span class="var">CUOTAS</span> cuotas. Escribinos «CONGELAR» y te pasamos disponibilidad y presupuesto.</div></div>
+    <div class="row"><div>Título</div><div><b>Fiesta 2027 con precio de hoy</b></div></div>
+    <div class="row"><div>Descripción</div><div>Válido hasta el <span class="var">FECHA LIMITE</span></div></div>
+    <div class="row"><div>Botón</div><div>Enviar mensaje de WhatsApp</div></div>
+    <div class="row"><div>Mensaje precargado</div><div>¡Hola! Quiero CONGELAR el precio de mi fiesta 2027. Mi fecha es: ___</div></div>
+  </div>
+  <div class="sep"></div>
+  <div class="grid g2 avoid">
+    <div class="nota"><b>Por qué funciona.</b> En Argentina la estrategia más usada en salones es reservar con un anticipo y congelar el valor (lo cubrió El Cronista). Le pone un costo concreto a esperar y suma una fecha límite real, lo que acelera los mensajes.</div>
+    <div class="nota roja"><b>Notas y plan B.</b> Solo si el salón congela el precio o lo mantiene hasta una fecha. Plan B si no congela: «Precio de lanzamiento Agenda 2027 hasta el <span class="var">FECHA LIMITE</span>» con el mismo guion. Nunca prometer precio fijo si las cuotas se ajustan.</div>
+  </div>
+  <h3>Cómo lo medimos</h3>
+  <table class="avoid"><tr><th>Indicador</th><th>Meta</th><th>Versión A</th><th>Versión B</th></tr>
+    <tr><td>Tasa de gancho (3 s ÷ impresiones)</td><td>&gt; 25%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Retención al 50% del video</td><td>&gt; 15%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Costo por conversación</td><td>&lt; USD 0,92</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Conversaciones calificadas (fecha + invitados)</td><td>&gt; 40%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Visitas agendadas / señas</td><td>—</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+  </table>
+</section>
+<section class="page eco-sec">
+  <div class="cab eco">
+    <div class="num"><small>Creativo</small><b>03</b><small>Ganador</small></div>
+    <div class="tit"><span class="chip eco">Ángulo ganador</span><span class="chip neutro">todo lo que incluye</span>
+      <h2>Todo esto entra en <span class="var">CUOTA</span> por mes</h2><div class="idea">Le mostramos al que mira todo lo que está pagando, ítem por ítem. El precio se justifica antes de que lo pregunte y bajan las consultas de curiosos.</div></div>
+    <div class="estado"><span><i class="box"></i>Grabado</span><span><i class="box"></i>Editado A</span><span><i class="box"></i>Editado B</span><span><i class="box"></i>Aprobado</span><span><i class="box"></i>En Meta</span></div>
+  </div>
+  <div class="ficha"><div><span class="lbl">Objetivo</span>Mensajes de gente que ya entendió qué incluye</div><div><span class="lbl">Duración</span>28–35 s</div><div><span class="lbl">Quién</span>Anfitrión/a caminando + VO</div><div><span class="lbl">Dónde</span>Recorrido completo del salón armado</div><div><span class="lbl">Audio</span>Sonido de «check» en cada ítem; música de fiesta de fondo</div><div><span class="lbl">CTA</span>Pedí el detalle del paquete</div><div><span class="lbl">Destino</span>Clic a WhatsApp</div><div><span class="lbl">Exportar</span>9:16 · carrusel 4:5 de 7 placas</div></div>
+  <div class="gancho-tit"><h3>El gancho · 0 a 3 s</h3><span class="mini">Lo que decide si el anuncio se mira o se pasa</span></div>
+  <div class="gancho avoid">
+    <div><span class="lbl">Se dice</span><div class="t">«Esto es todo lo que incluye una fiesta de <span class="var">CUOTA</span> por mes.»</div></div>
+    <div><span class="lbl">Se lee en pantalla</span><div class="pantalla">TODO ESTO POR <span class="var">CUOTA</span>/MES</div></div>
+    <div><span class="lbl">Se ve</span>Las puertas del salón se abren hacia la pista iluminada; el anfitrión/a entra y señala hacia adentro</div>
+  </div>
+  <span class="lbl">Cuatro ganchos para grabar · se editan A y B</span>
+  <ul class="variantes"><li class="rec"><b class="l">A ★</b><span>«Esto es todo lo que incluye una fiesta de <span class="var">CUOTA</span> por mes.»</span><span class="scr">Todo esto por <span class="var">CUOTA</span>/mes</span></li><li class=""><b class="l">B</b><span>«Sin sorpresas: esto incluye y esto no.»</span><span class="scr">Sin letra chica</span></li><li class=""><b class="l">C</b><span>«Lo que te cobran aparte en otros salones, acá ya está incluido.» <span class="validar">[VALIDAR]</span></span><span class="scr">Ya incluido</span></li><li class=""><b class="l">D</b><span>«7 cosas que tu fiesta 2027 ya tiene resueltas.»</span><span class="scr">7 cosas ya resueltas</span></li></ul>
+  <p class="mini">★ A: el contador 1/7 → 7/7 retiene hasta el final y el número de cuota queda en pantalla todo el video.</p>
+  <h3>Guion</h3>
+  <div class="riel"><div class="beat h"><div class="tc">Tiempo</div><div class="pl">Plano</div><div>Qué se dice</div><div>Texto en pantalla</div></div><div class="beat avoid"><div class="tc">0–3 s</div><div class="pl">Apertura de puertas a la pista</div><div class="dice">Gancho A</div><div class="lee">TODO ESTO POR <span class="var">CUOTA</span>/MES</div></div><div class="beat avoid"><div class="tc">3–8 s</div><div class="pl">Salón con mesas armadas</div><div class="dice">«Uno: el salón para <span class="var">INVITADOS</span> invitados, con <span class="var">DATO SALON</span>.»</div><div class="lee">1/7 · SALÓN</div></div><div class="beat avoid"><div class="tc">8–13 s</div><div class="pl">Detalle del plato / cocina</div><div class="dice">«Dos: catering completo, <span class="var">MENU</span>.»</div><div class="lee">2/7 · CATERING</div></div><div class="beat avoid"><div class="tc">13–17 s</div><div class="pl">Barra en acción</div><div class="dice">«Tres: barra <span class="var">BARRA</span>.»</div><div class="lee">3/7 · BARRA</div></div><div class="beat avoid"><div class="tc">17–21 s</div><div class="pl">Cabina del DJ y luces</div><div class="dice">«Cuatro: DJ, sonido y luces.» «Cinco: <span class="var">AMBIENTACION</span>.»</div><div class="lee">4/7 · DJ · 5/7 AMBIENTACIÓN</div></div><div class="beat avoid"><div class="tc">21–26 s</div><div class="pl">Coordinador/a con la planilla</div><div class="dice">«Seis: coordinación el día del evento. Siete: <span class="var">ITEM EXTRA</span>.»</div><div class="lee">6/7 · COORDINACIÓN · 7/7</div></div><div class="beat avoid"><div class="tc">26–33 s</div><div class="pl">Primer plano en la pista</div><div class="dice">«Todo eso en <span class="var">CUOTAS</span> cuotas de <span class="var">CUOTA</span>. Pedí el detalle por WhatsApp.»</div><div class="lee">PEDÍ EL DETALLE →</div></div></div>
+</section>
+<section class="page eco-sec">
+  <div class="sec"><span class="n">03</span><h2 style="font-size:15pt">Todo esto entra en <span class="var">CUOTA</span> por mes</h2><span class="r">Producción y anuncio</span></div>
+  <div class="grid g2 avoid">
+    <div class="card"><span class="lbl">Lista de tomas</span><ul class="check one"><li>Apertura de puertas (desde adentro y desde afuera)</li><li>1 plano detalle por ítem (7)</li><li>Coordinador/a real con la planilla del evento</li><li>Cierre en la pista, 2 versiones</li><li>Fotos fijas de cada ítem para el carrusel</li></ul></div>
+    <div class="card"><span class="lbl">Utilería y preparación</span><ul class="check one"><li>Salón armado completo</li><li>Plato del menú emplatado</li><li>Planilla/tablet de coordinación</li></ul></div>
+  </div>
+  <h3>El anuncio en Meta</h3><p class="mini">Mismo texto para las versiones A y B. Primera línea = gancho: es lo único que se ve antes del «ver más».</p>
+  <div class="ad avoid">
+    <div class="row"><div>Texto principal</div><div>¿Qué incluye una fiesta en Trebelno Recepciones? ✔️ Salón para <span class="var">INVITADOS</span> invitados ✔️ Catering completo ✔️ Barra ✔️ DJ, sonido y luces ✔️ Ambientación ✔️ Coordinación ✔️ <span class="var">ITEM EXTRA</span>. Todo en <span class="var">CUOTAS</span> cuotas de <span class="var">CUOTA</span>. Escribinos y te mandamos el detalle del paquete para tu fecha 2027.</div></div>
+    <div class="row"><div>Título</div><div><b>Todo incluido en <span class="var">CUOTAS</span> cuotas</b></div></div>
+    <div class="row"><div>Descripción</div><div>Pedí el detalle del paquete</div></div>
+    <div class="row"><div>Botón</div><div>Enviar mensaje de WhatsApp</div></div>
+    <div class="row"><div>Mensaje precargado</div><div>¡Hola! Quiero el detalle de lo que incluye el paquete para mi fiesta 2027.</div></div>
+  </div>
+  <div class="sep"></div>
+  <div class="grid g2 avoid">
+    <div class="nota"><b>Por qué funciona.</b> Jano's vende «paquetes» por niveles (All inclusive, VIP, Ultra VIP) y sus anuncios llevan a «conocé el paquete ideal para vos». Mostrar el contenido del paquete antes que el precio hace que la cuota se lea como barata.</div>
+    <div class="nota roja"><b>Notas y plan B.</b> Los 7 ítems salen del cuestionario (bloque B). Si hay paquetes por niveles, grabar el del medio y nombrar los otros en el caption. Va bien también como carrusel estático para el feed.</div>
+  </div>
+  <h3>Cómo lo medimos</h3>
+  <table class="avoid"><tr><th>Indicador</th><th>Meta</th><th>Versión A</th><th>Versión B</th></tr>
+    <tr><td>Tasa de gancho (3 s ÷ impresiones)</td><td>&gt; 25%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Retención al 50% del video</td><td>&gt; 15%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Costo por conversación</td><td>&lt; USD 0,92</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Conversaciones calificadas (fecha + invitados)</td><td>&gt; 40%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Visitas agendadas / señas</td><td>—</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+  </table>
+</section>
+<section class="page eco-sec">
+  <div class="cab eco">
+    <div class="num"><small>Creativo</small><b>04</b><small>Ganador</small></div>
+    <div class="tit"><span class="chip eco">Ángulo ganador</span><span class="chip neutro">prueba social</span>
+      <h2>«Lo pagamos en 12 cuotas»: una fiesta real</h2><div class="idea">Una familia (o pareja) cuenta que su fiesta se pagó en cuotas. El que duda escucha a alguien como él, no al salón.</div></div>
+    <div class="estado"><span><i class="box"></i>Grabado</span><span><i class="box"></i>Editado A</span><span><i class="box"></i>Editado B</span><span><i class="box"></i>Aprobado</span><span><i class="box"></i>En Meta</span></div>
+  </div>
+  <div class="ficha"><div><span class="lbl">Objetivo</span>Bajar la duda «¿se puede de verdad?» y generar mensajes</div><div><span class="lbl">Duración</span>30–40 s</div><div><span class="lbl">Quién</span>Cliente real (madre/padre de quinceañera o pareja)</div><div><span class="lbl">Dónde</span>Salón vacío + material de su fiesta</div><div><span class="lbl">Audio</span>Voz del cliente en seco; música de su fiesta debajo</div><div><span class="lbl">CTA</span>Escribinos y armamos el tuyo</div><div><span class="lbl">Destino</span>Clic a WhatsApp</div><div><span class="lbl">Exportar</span>9:16 · 4:5</div></div>
+  <div class="gancho-tit"><h3>El gancho · 0 a 3 s</h3><span class="mini">Lo que decide si el anuncio se mira o se pasa</span></div>
+  <div class="gancho avoid">
+    <div><span class="lbl">Se dice</span><div class="t">(Cliente) «Hicimos los 15 de <span class="var">NOMBRE</span> y lo pagamos en <span class="var">CUOTAS</span> cuotas.»</div></div>
+    <div><span class="lbl">Se lee en pantalla</span><div class="pantalla">LO PAGAMOS EN <span class="var">CUOTAS</span> CUOTAS</div></div>
+    <div><span class="lbl">Se ve</span>Clip de la entrada de la quinceañera (o de la pareja) en su fiesta → corte seco al cliente sentado en el salón vacío</div>
+  </div>
+  <span class="lbl">Cuatro ganchos para grabar · se editan A y B</span>
+  <ul class="variantes"><li class="rec"><b class="l">A ★</b><span>«Hicimos los 15 de <span class="var">NOMBRE</span> y lo pagamos en <span class="var">CUOTAS</span> cuotas.»</span><span class="scr">Lo pagamos en <span class="var">CUOTAS</span> cuotas</span></li><li class=""><b class="l">B</b><span>«Pensábamos que no llegábamos. Llegamos.»</span><span class="scr">Pensábamos que no llegábamos</span></li><li class=""><b class="l">C</b><span>«Un año antes de la fiesta, empezamos a pagarla así.»</span><span class="scr">Así la pagamos</span></li><li class=""><b class="l">D</b><span>Anfitrión/a: «Esta familia reservó con <span class="var">ANTICIPO</span>. Esta fue su fiesta.» (Plan B)</span><span class="scr">Reservaron con <span class="var">ANTICIPO</span></span></li></ul>
+  <p class="mini">★ A: arranca con la emoción de la fiesta y la frase del cliente resume la oferta.</p>
+  <h3>Guion</h3>
+  <div class="riel"><div class="beat h"><div class="tc">Tiempo</div><div class="pl">Plano</div><div>Qué se dice</div><div>Texto en pantalla</div></div><div class="beat avoid"><div class="tc">0–3 s</div><div class="pl">Clip de la entrada en su fiesta → cliente</div><div class="dice">Gancho A</div><div class="lee">LO PAGAMOS EN <span class="var">CUOTAS</span> CUOTAS</div></div><div class="beat avoid"><div class="tc">3–10 s</div><div class="pl">Plano medio del cliente</div><div class="dice">Respuesta a: ¿Qué pensaban antes de averiguar? (en sus palabras)</div><div class="lee"><span class="var">FRASE CLIENTE 1</span></div></div><div class="beat avoid"><div class="tc">10–18 s</div><div class="pl">Plano medio, otro ángulo</div><div class="dice">Respuesta a: ¿Cómo la fueron pagando?</div><div class="lee">RESERVAMOS CON <span class="var">ANTICIPO</span></div></div><div class="beat avoid"><div class="tc">18–27 s</div><div class="pl">Material de la fiesta (VO del cliente)</div><div class="dice">Respuesta a: ¿Qué es lo que más recordás de ese día?</div><div class="lee"><span class="var">FRASE CLIENTE 2</span></div></div><div class="beat avoid"><div class="tc">27–35 s</div><div class="pl">Anfitrión/a primer plano</div><div class="dice">«¿Tu fiesta es en 2027? Escribinos y la armamos en cuotas.»</div><div class="lee">ESCRIBINOS · AGENDA 2027 →</div></div></div>
+</section>
+<section class="page eco-sec">
+  <div class="sec"><span class="n">04</span><h2 style="font-size:15pt">«Lo pagamos en 12 cuotas»: una fiesta real</h2><span class="r">Producción y anuncio</span></div>
+  <div class="grid g2 avoid">
+    <div class="card"><span class="lbl">Lista de tomas</span><ul class="check one"><li>Entrevista al cliente (10 min, 2 cámaras)</li><li>Planos de manos/fotos de la fiesta en la mesa</li><li>Cliente caminando el salón donde fue la fiesta</li><li>Cierre del anfitrión/a</li><li>Selección de 6–8 clips de la fiesta del cliente</li></ul></div>
+    <div class="card"><span class="lbl">Utilería y preparación</span><ul class="check one"><li>Material de la fiesta del cliente (video del fotógrafo, con permiso)</li><li>Autorización de imagen firmada</li></ul></div>
+  </div>
+  <h3>El anuncio en Meta</h3><p class="mini">Mismo texto para las versiones A y B. Primera línea = gancho: es lo único que se ve antes del «ver más».</p>
+  <div class="ad avoid">
+    <div class="row"><div>Texto principal</div><div>«Pensábamos que no llegábamos con la plata, y lo pagamos en <span class="var">CUOTAS</span> cuotas.» 💛 Así fueron los 15 de <span class="var">NOMBRE</span> en Trebelno Recepciones. Si tu fiesta es en 2027, reservás con <span class="var">ANTICIPO</span> y la vas pagando mes a mes. Escribinos tu fecha y te pasamos el presupuesto.</div></div>
+    <div class="row"><div>Título</div><div><b>Ellos lo pagaron en cuotas</b></div></div>
+    <div class="row"><div>Descripción</div><div>Agenda 2027 abierta</div></div>
+    <div class="row"><div>Botón</div><div>Enviar mensaje de WhatsApp</div></div>
+    <div class="row"><div>Mensaje precargado</div><div>¡Hola! Vi la fiesta de <span class="var">NOMBRE</span> y quiero presupuesto en cuotas para 2027.</div></div>
+  </div>
+  <div class="sep"></div>
+  <div class="grid g2 avoid">
+    <div class="nota"><b>Por qué funciona.</b> En una compra de $13 millones el miedo es «¿será cierto?». Un cliente real que pagó en cuotas responde esa duda mejor que cualquier texto. Los estudios de caso de Meta para salones muestran que el testimonio en video es la prueba social que más funciona.</div>
+    <div class="nota roja"><b>Notas y plan B.</b> Nada guionado en boca del cliente: se graba con las preguntas guía y se edita. Autorización escrita para redes y pauta. Si la venta del test 1 cierra con fiesta antes del rodaje, es la candidata ideal. Plan B: variante D con el anfitrión/a.</div>
+  </div>
+  <h3>Cómo lo medimos</h3>
+  <table class="avoid"><tr><th>Indicador</th><th>Meta</th><th>Versión A</th><th>Versión B</th></tr>
+    <tr><td>Tasa de gancho (3 s ÷ impresiones)</td><td>&gt; 25%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Retención al 50% del video</td><td>&gt; 15%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Costo por conversación</td><td>&lt; USD 0,92</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Conversaciones calificadas (fecha + invitados)</td><td>&gt; 40%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Visitas agendadas / señas</td><td>—</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+  </table>
+</section>
+<section class="page nuevo-sec">
+  <div class="cab nuevo">
+    <div class="num"><small>Creativo</small><b>05</b><small>Nuevo</small></div>
+    <div class="tit"><span class="chip nuevo">Ángulo nuevo</span><span class="chip neutro">visita al salón</span>
+      <h2>Entrá a tu fiesta 2027 antes de reservarla</h2><div class="idea">Recorrido en primera persona (POV) como si fueras el invitado de honor, y como cierre, una invitación a recorrer el salón en persona. Adaptamos «Open Jano's» (conocé el salón por dentro antes de decidir) a un salón propio.</div></div>
+    <div class="estado"><span><i class="box"></i>Grabado</span><span><i class="box"></i>Editado A</span><span><i class="box"></i>Editado B</span><span><i class="box"></i>Aprobado</span><span><i class="box"></i>En Meta</span></div>
+  </div>
+  <div class="ficha"><div><span class="lbl">Objetivo</span>Visitas agendadas al salón (leads de más calidad)</div><div><span class="lbl">Duración</span>30–35 s</div><div><span class="lbl">Quién</span>POV + anfitrión/a al final</div><div><span class="lbl">Dónde</span>Entrada → recepción → salón → pista</div><div><span class="lbl">Audio</span>Ambiente real de la puerta; la música sube al llegar a la pista</div><div><span class="lbl">CTA</span>Escribí VISITA</div><div><span class="lbl">Destino</span>Clic a WhatsApp</div><div><span class="lbl">Exportar</span>9:16 (estabilizado) · 4:5</div></div>
+  <div class="gancho-tit"><h3>El gancho · 0 a 3 s</h3><span class="mini">Lo que decide si el anuncio se mira o se pasa</span></div>
+  <div class="gancho avoid">
+    <div><span class="lbl">Se dice</span><div class="t">(Texto, sin voz) «Así es llegar a tu fiesta 2027.»</div></div>
+    <div><span class="lbl">Se lee en pantalla</span><div class="pantalla">ENTRÁ A TU FIESTA 2027</div></div>
+    <div><span class="lbl">Se ve</span>POV desde la vereda: se abre la puerta y las luces del salón se encienden de golpe</div>
+  </div>
+  <span class="lbl">Cuatro ganchos para grabar · se editan A y B</span>
+  <ul class="variantes"><li class="rec"><b class="l">A ★</b><span>Texto: «Así es llegar a tu fiesta 2027.»</span><span class="scr">Entrá a tu fiesta 2027</span></li><li class=""><b class="l">B</b><span>«Antes de reservar, vení a verlo en persona.»</span><span class="scr">Conocelo antes de decidir</span></li><li class=""><b class="l">C</b><span>«Las fotos no le hacen justicia. Mirá.»</span><span class="scr">Las fotos no le hacen justicia</span></li><li class=""><b class="l">D</b><span>«El <span class="var">DIA VISITA</span> abrimos el salón para vos.»</span><span class="scr">Salón abierto · <span class="var">DIA VISITA</span></span></li></ul>
+  <p class="mini">★ A: el POV pone al que mira adentro de la fiesta y funciona sin sonido, que es como se ve la mayoría de los Reels pagos.</p>
+  <h3>Guion</h3>
+  <div class="riel"><div class="beat h"><div class="tc">Tiempo</div><div class="pl">Plano</div><div>Qué se dice</div><div>Texto en pantalla</div></div><div class="beat avoid"><div class="tc">0–3 s</div><div class="pl">POV: puerta y luces</div><div class="dice">Sin voz. Sonido de la puerta</div><div class="lee">ENTRÁ A TU FIESTA 2027</div></div><div class="beat avoid"><div class="tc">3–8 s</div><div class="pl">POV: recepción / hall</div><div class="dice">(VO) «Llegás y tus invitados ya te están esperando.»</div><div class="lee">LA RECEPCIÓN</div></div><div class="beat avoid"><div class="tc">8–14 s</div><div class="pl">POV: travelling entre mesas armadas</div><div class="dice">(VO) «<span class="var">INVITADOS</span> invitados, con <span class="var">DATO SALON</span>.»</div><div class="lee">EL SALÓN · <span class="var">INVITADOS</span> INVITADOS</div></div><div class="beat avoid"><div class="tc">14–20 s</div><div class="pl">POV: llegada a la pista, humo y luces</div><div class="dice">La música sube. Sin voz</div><div class="lee">LA PISTA</div></div><div class="beat avoid"><div class="tc">20–25 s</div><div class="pl">Detalle: mesa dulce / barra</div><div class="dice">(VO) «Y todo lo demás, ya resuelto.»</div><div class="lee">TODO INCLUIDO</div></div><div class="beat avoid"><div class="tc">25–33 s</div><div class="pl">Anfitrión/a en la pista, a cámara</div><div class="dice">«Vení a verlo en persona. Escribinos VISITA y te reservamos un horario para recorrerlo.»</div><div class="lee">ESCRIBÍ «VISITA» →</div></div></div>
+</section>
+<section class="page nuevo-sec">
+  <div class="sec"><span class="n">05</span><h2 style="font-size:15pt">Entrá a tu fiesta 2027 antes de reservarla</h2><span class="r">Producción y anuncio</span></div>
+  <div class="grid g2 avoid">
+    <div class="card"><span class="lbl">Lista de tomas</span><ul class="check one"><li>POV continuo con gimbal (3 tomas completas sin cortes)</li><li>Encendido de luces sincronizado (con el técnico)</li><li>Travelling entre mesas a la altura de los ojos</li><li>Pista con humo y luces móviles</li><li>Cierre del anfitrión/a, 2 versiones (visita / jornada abierta)</li></ul></div>
+    <div class="card"><span class="lbl">Utilería y preparación</span><ul class="check one"><li>Gimbal o celular con estabilizador</li><li>Técnico de luces durante el rodaje</li><li>Salón armado completo, con humo</li></ul></div>
+  </div>
+  <h3>El anuncio en Meta</h3><p class="mini">Mismo texto para las versiones A y B. Primera línea = gancho: es lo único que se ve antes del «ver más».</p>
+  <div class="ad avoid">
+    <div class="row"><div>Texto principal</div><div>Antes de reservar tu fiesta 2027, entrá a verla ✨ Recorré Trebelno Recepciones en persona: el salón, la pista, la barra y todo lo que incluye tu paquete. Escribinos «VISITA» y te reservamos un horario. <span class="var">DIA VISITA</span></div></div>
+    <div class="row"><div>Título</div><div><b>Conocé el salón antes de decidir</b></div></div>
+    <div class="row"><div>Descripción</div><div>Reservá tu horario de visita</div></div>
+    <div class="row"><div>Botón</div><div>Enviar mensaje de WhatsApp</div></div>
+    <div class="row"><div>Mensaje precargado</div><div>¡Hola! Quiero agendar una VISITA al salón. Mi fiesta sería en 2027.</div></div>
+  </div>
+  <div class="sep"></div>
+  <div class="grid g2 avoid">
+    <div class="nota"><b>Por qué funciona.</b> Jano's tiene un formato fijo («Open Jano's») para que la gente recorra el salón antes de decidir. En un ticket alto la visita es el paso que más acerca a la seña, y el POV es el formato de recorrido que más se usa hoy en salones de afuera.</div>
+    <div class="nota roja"><b>Notas y plan B.</b> Si el salón no hace jornadas abiertas, el CTA es una visita individual con turno. En WhatsApp hay que tener una respuesta rápida con los días y horarios de visita: si no, el lead se enfría.</div>
+  </div>
+  <h3>Cómo lo medimos</h3>
+  <table class="avoid"><tr><th>Indicador</th><th>Meta</th><th>Versión A</th><th>Versión B</th></tr>
+    <tr><td>Tasa de gancho (3 s ÷ impresiones)</td><td>&gt; 25%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Retención al 50% del video</td><td>&gt; 15%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Costo por conversación</td><td>&lt; USD 0,92</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Conversaciones calificadas (fecha + invitados)</td><td>&gt; 40%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Visitas agendadas / señas</td><td>—</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+  </table>
+</section>
+<section class="page nuevo-sec">
+  <div class="cab nuevo">
+    <div class="num"><small>Creativo</small><b>06</b><small>Nuevo</small></div>
+    <div class="tit"><span class="chip nuevo">Ángulo nuevo</span><span class="chip neutro">fechas disponibles 2027</span>
+      <h2>Agenda 2027: estos sábados ya no están</h2><div class="idea">Mostramos un calendario 2027 real con las fechas reservadas tachadas. La urgencia sale de la agenda, no de una promoción. Toma el «Consultá disponibilidad HOY» de Jano's y lo hace visible.</div></div>
+    <div class="estado"><span><i class="box"></i>Grabado</span><span><i class="box"></i>Editado A</span><span><i class="box"></i>Editado B</span><span><i class="box"></i>Aprobado</span><span><i class="box"></i>En Meta</span></div>
+  </div>
+  <div class="ficha"><div><span class="lbl">Objetivo</span>Que manden su fecha para consultar disponibilidad</div><div><span class="lbl">Duración</span>20–28 s</div><div><span class="lbl">Quién</span>Anfitrión/a a cámara</div><div><span class="lbl">Dónde</span>Calendario 2027 grande en la pared del salón</div><div><span class="lbl">Audio</span>Fibrón real raspando el papel; sin música los primeros 2 s</div><div><span class="lbl">CTA</span>Mandanos tu fecha</div><div><span class="lbl">Destino</span>Clic a WhatsApp</div><div><span class="lbl">Exportar</span>9:16 · 4:5 · estático del calendario</div></div>
+  <div class="gancho-tit"><h3>El gancho · 0 a 3 s</h3><span class="mini">Lo que decide si el anuncio se mira o se pasa</span></div>
+  <div class="gancho avoid">
+    <div><span class="lbl">Se dice</span><div class="t">«Estos sábados de 2027 ya no están.»</div></div>
+    <div><span class="lbl">Se lee en pantalla</span><div class="pantalla">AGENDA 2027 · YA SE ESTÁ LLENANDO</div></div>
+    <div><span class="lbl">Se ve</span>Primer plano: fibrón tachando un sábado en un calendario 2027 impreso; abre el plano y aparece el anfitrión/a</div>
+  </div>
+  <span class="lbl">Cuatro ganchos para grabar · se editan A y B</span>
+  <ul class="variantes"><li class="rec"><b class="l">A ★</b><span>«Estos sábados de 2027 ya no están.»</span><span class="scr">Agenda 2027 · ya se está llenando</span></li><li class=""><b class="l">B</b><span>«¿Tu fecha 2027 sigue libre? Fijate acá.»</span><span class="scr">¿Tu fecha sigue libre?</span></li><li class=""><b class="l">C</b><span>«En <span class="var">MES PICO</span> nos quedan <span class="var">N FECHAS</span> sábados.»</span><span class="scr">Quedan <span class="var">N FECHAS</span> sábados en <span class="var">MES PICO</span></span></li><li class=""><b class="l">D</b><span>«Los 15 se reservan con <span class="var">MESES</span> meses de anticipación. Y los sábados se van primero.»</span><span class="scr">Los sábados se van primero</span></li></ul>
+  <p class="mini">★ A + fibrón: el gesto de tachar se entiende al instante y genera la pregunta «¿y la mía?».</p>
+  <h3>Guion</h3>
+  <div class="riel"><div class="beat h"><div class="tc">Tiempo</div><div class="pl">Plano</div><div>Qué se dice</div><div>Texto en pantalla</div></div><div class="beat avoid"><div class="tc">0–3 s</div><div class="pl">Fibrón tachando un sábado</div><div class="dice">Gancho A</div><div class="lee">AGENDA 2027 · YA SE ESTÁ LLENANDO</div></div><div class="beat avoid"><div class="tc">3–9 s</div><div class="pl">Plano medio junto al calendario</div><div class="dice">«Las fiestas se reservan con <span class="var">MESES</span> meses de anticipación, y los sábados son los primeros en irse.»</div><div class="lee">LOS SÁBADOS SE VAN PRIMERO</div></div><div class="beat avoid"><div class="tc">9–15 s</div><div class="pl">Primer plano del calendario</div><div class="dice">«En <span class="var">MES PICO</span> nos quedan <span class="var">N FECHAS</span> sábados.» <span class="validar">[VALIDAR]</span></div><div class="lee"><span class="var">MES PICO</span> · QUEDAN <span class="var">N FECHAS</span></div></div><div class="beat avoid"><div class="tc">15–21 s</div><div class="pl">B-roll: fiesta real en la pista (VO)</div><div class="dice">«Si ya tenés la fecha en mente, este es el momento de reservarla.»</div><div class="lee">TU FECHA, TU FIESTA</div></div><div class="beat avoid"><div class="tc">21–27 s</div><div class="pl">Primer plano del anfitrión/a</div><div class="dice">«Mandanos tu fecha por WhatsApp y te decimos al toque si está libre. La reservás con <span class="var">ANTICIPO</span>.»</div><div class="lee">MANDANOS TU FECHA →</div></div></div>
+</section>
+<section class="page nuevo-sec">
+  <div class="sec"><span class="n">06</span><h2 style="font-size:15pt">Agenda 2027: estos sábados ya no están</h2><span class="r">Producción y anuncio</span></div>
+  <div class="grid g2 avoid">
+    <div class="card"><span class="lbl">Lista de tomas</span><ul class="check one"><li>Tachado de fechas (3 fechas distintas, 3 tomas cada una)</li><li>Plano general: anfitrión/a + calendario</li><li>Primer plano del mes pico</li><li>Cierre a cámara</li><li>Foto del calendario completo para el estático</li></ul></div>
+    <div class="card"><span class="lbl">Utilería y preparación</span><ul class="check one"><li>Calendario 2027 impreso grande (A1 o A0) con las fechas REALES ocupadas</li><li>Fibrón grueso bordó</li><li>Cinta para pegarlo en la pared</li></ul></div>
+  </div>
+  <h3>El anuncio en Meta</h3><p class="mini">Mismo texto para las versiones A y B. Primera línea = gancho: es lo único que se ve antes del «ver más».</p>
+  <div class="ad avoid">
+    <div class="row"><div>Texto principal</div><div>📅 Agenda 2027: los sábados se están reservando. Si tu fiesta de 15, casamiento o cumpleaños es en 2027, mandanos tu fecha y te decimos al toque si está libre en Trebelno Recepciones. La reservás con <span class="var">ANTICIPO</span> y pagás el resto en cuotas.</div></div>
+    <div class="row"><div>Título</div><div><b>¿Tu fecha 2027 sigue libre?</b></div></div>
+    <div class="row"><div>Descripción</div><div>Consultá disponibilidad hoy</div></div>
+    <div class="row"><div>Botón</div><div>Enviar mensaje de WhatsApp</div></div>
+    <div class="row"><div>Mensaje precargado</div><div>¡Hola! ¿Tienen disponible esta fecha en 2027? ___</div></div>
+  </div>
+  <div class="sep"></div>
+  <div class="grid g2 avoid">
+    <div class="nota"><b>Por qué funciona.</b> Los anuncios de Jano's que siguen activos llevan a «Consultá por disponibilidad HOY». La fecha es la primera pregunta de cualquier cliente y el sábado es escaso de verdad: la escasez se puede mostrar sin inventar nada.</div>
+    <div class="nota roja"><b>Notas y plan B.</b> Solo fechas que estén reservadas de verdad (Meta y la credibilidad del salón lo exigen). Actualizar el calendario y regrabar el primer plano cada 4–6 semanas: se convierte en una serie («Agenda 2027 · actualización»).</div>
+  </div>
+  <h3>Cómo lo medimos</h3>
+  <table class="avoid"><tr><th>Indicador</th><th>Meta</th><th>Versión A</th><th>Versión B</th></tr>
+    <tr><td>Tasa de gancho (3 s ÷ impresiones)</td><td>&gt; 25%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Retención al 50% del video</td><td>&gt; 15%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Costo por conversación</td><td>&lt; USD 0,92</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Conversaciones calificadas (fecha + invitados)</td><td>&gt; 40%</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+    <tr><td>Visitas agendadas / señas</td><td>—</td><td><div class="escribir" style="min-width:0"></div></td><td><div class="escribir" style="min-width:0"></div></td></tr>
+  </table>
+</section>
+
+<section class="page">
+  <div class="sec"><span class="n">05</span><h2>Datos a reemplazar</h2><span class="r">Completar antes de grabar</span></div>
+  <p class="lead">Cada casilla amarilla del kit es un dato del salón. Se completa acá una sola vez, a mano o el día de la grabación, y se usa el mismo valor en los guiones, los textos del anuncio y las respuestas de WhatsApp.</p>
+  <div class="nota">Referencia del test 1: venta de <b>$13.000.000 en 12 cuotas</b> = <b>≈ $1.083.333 por mes</b> (sin ajuste). Sirve de ejemplo para el creativo 01 si el cliente confirma que ese es su paquete más vendido.</div>
+  <table style="table-layout:fixed"><colgroup><col style="width:44mm"><col><col style="width:20mm"><col style="width:48mm"><col style="width:9mm"></colgroup><tr><th>Dato</th><th>Qué es</th><th>Creativos</th><th>Valor real</th><th>OK</th></tr><tr><td><span class="var" style="white-space:normal">TOTAL</span></td><td>Precio total del paquete de referencia (el más vendido)</td><td>01 02 03</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">CUOTAS</span></td><td>Cantidad de cuotas (en el test 1 fueron 12)</td><td>01–06</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">CUOTA</span></td><td>Valor de cada cuota del paquete de referencia</td><td>01 03 04</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">ANTICIPO</span></td><td>Monto o % para reservar la fecha</td><td>01 02 04 06</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">AJUSTE</span></td><td>Cuotas fijas o con ajuste (índice y frecuencia)</td><td>01 02</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">INVITADOS</span></td><td>Cantidad de invitados del paquete de referencia</td><td>01 03 05</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">INCLUYE 1-3 / MENU / BARRA / AMBIENTACION / ITEM EXTRA</span></td><td>Lo que incluye el paquete</td><td>01 03</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">DATO SALON</span></td><td>Dato diferencial del salón (m², capacidad, parque, estacionamiento)</td><td>03 05</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">FECHA LIMITE / DIAS</span></td><td>Hasta cuándo vale el precio de hoy o la promoción</td><td>02</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">NOMBRE / FRASE CLIENTE</span></td><td>Cliente que da testimonio y sus frases textuales</td><td>04</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">DIA VISITA</span></td><td>Días y horarios de visita o de jornada abierta</td><td>05</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">MESES</span></td><td>Anticipación promedio con la que reservan</td><td>06</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr><tr><td><span class="var" style="white-space:normal">MES PICO / N FECHAS</span></td><td>Mes más pedido y sábados que quedan libres</td><td>06</td><td><div class="escribir" style="min-width:0;height:20px"></div></td><td><span class="box"></span></td></tr></table>
+  <div class="sep"></div>
+  <div class="grid g2">
+    <div class="card"><span class="lbl">Firma del cliente · datos aprobados</span><div style="height:22mm"></div><div class="escribir"></div><span class="mini">Nombre y fecha</span></div>
+    <div class="card"><span class="lbl">Notas del día de grabación</span><div style="height:30mm"></div></div>
+  </div>
+</section>
+</body></html>

@@ -1,0 +1,177 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Trebelno · Cuestionario comercial</title><style>/* Sistema visual "Claqueta" · Trebelno Recepciones · Agenda 2027 */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&display=swap');
+
+:root{
+  --papel:#faf6ef;
+  --papel-2:#f2ebdf;
+  --tinta:#1d1a17;
+  --tinta-2:#4a443d;
+  --tinta-3:#8a8178;
+  --linea:#ddd3c4;
+  --bordo:#7a1f2b;
+  --bordo-claro:#f3e3e3;
+  --oro:#b8914a;
+  --oro-claro:#f6edda;
+  --salvia:#2f5e55;
+  --salvia-claro:#e2ede9;
+  --var:#fff0a8;
+}
+@page{ size:A4; margin:14mm 14mm 16mm 14mm; }
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:#fff;
+  color:var(--tinta);
+  font-family:'Inter',sans-serif;
+  font-size:9.2pt;
+  line-height:1.45;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+h1,h2,h3,.serif{ font-family:'Fraunces',Georgia,serif; font-weight:600; margin:0; }
+p{ margin:0 0 6px; }
+.page{ page-break-after:always; break-after:page; position:relative; }
+.page:last-child{ page-break-after:auto; break-after:auto; }
+.avoid{ break-inside:avoid; page-break-inside:avoid; }
+
+/* Variables a reemplazar */
+.var{ background:var(--var); border-bottom:1.5px solid #d9b800; padding:0 3px; border-radius:2px;
+  font-family:'JetBrains Mono',monospace; font-size:.86em; font-weight:600; white-space:nowrap; color:#3a3000; }
+.validar{ color:var(--bordo); font-weight:700; font-size:.8em; letter-spacing:.04em; }
+
+/* Portada */
+.portada{ height:265mm; display:flex; flex-direction:column; justify-content:space-between;
+  border:1.2px solid var(--tinta); padding:16mm 14mm; background:
+  repeating-linear-gradient(135deg, transparent 0 14px, rgba(29,26,23,.025) 14px 15px), var(--papel); }
+.portada .claqueta{ display:flex; height:16mm; border:1.2px solid var(--tinta); }
+.portada .claqueta span{ flex:1; background:var(--tinta); transform:skewX(-28deg); margin:0 6px; }
+.portada .claqueta span:nth-child(even){ background:var(--papel); }
+.portada .kicker{ letter-spacing:.32em; font-size:8pt; text-transform:uppercase; color:var(--tinta-2); }
+.portada h1{ font-size:44pt; line-height:1.02; font-weight:800; letter-spacing:-.01em; margin-top:8mm; }
+.portada h1 em{ font-style:italic; color:var(--bordo); font-weight:600; }
+.portada .sub{ font-size:12pt; color:var(--tinta-2); max-width:130mm; margin-top:6mm; }
+.portada .pie{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1.2px solid var(--tinta); }
+.portada .pie div{ padding:8px 10px 0 0; }
+.portada .pie b{ display:block; font-size:7pt; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; }
+.portada .pie span{ font-family:'Fraunces',serif; font-size:11pt; }
+
+/* Encabezado de sección */
+.sec{ display:flex; align-items:baseline; gap:10px; border-bottom:1.2px solid var(--tinta); padding-bottom:5px; margin:0 0 10px; }
+.sec .n{ font-family:'JetBrains Mono',monospace; font-size:8pt; color:var(--bordo); font-weight:700; }
+.sec h2{ font-size:19pt; }
+.sec .r{ margin-left:auto; font-size:7.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--tinta-3); }
+h3{ font-size:11.5pt; margin:10px 0 5px; }
+.lead{ font-size:10.5pt; color:var(--tinta-2); max-width:165mm; }
+
+/* Tarjetas y grillas */
+.grid{ display:grid; gap:8px; }
+.g2{ grid-template-columns:1fr 1fr; } .g3{ grid-template-columns:repeat(3,1fr); } .g4{ grid-template-columns:repeat(4,1fr); }
+.card{ background:#fff; border:1px solid var(--linea); border-radius:4px; padding:8px 10px; }
+.card.tinta{ background:var(--tinta); color:var(--papel); border-color:var(--tinta); }
+.card.oro{ background:var(--oro-claro); border-color:#e6d3ad; }
+.card.bordo{ background:var(--bordo-claro); border-color:#e8c9c9; }
+.card.salvia{ background:var(--salvia-claro); border-color:#c6dad3; }
+.lbl{ display:block; font-size:6.8pt; letter-spacing:.18em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; margin-bottom:2px; }
+.card.tinta .lbl{ color:#bfb5a8; }
+.big{ font-family:'Fraunces',serif; font-size:22pt; font-weight:800; line-height:1; }
+ul.lim{ margin:2px 0 0; padding-left:14px; } ul.lim li{ margin-bottom:3px; }
+.chip{ display:inline-block; font-size:7pt; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+  padding:2px 7px; border-radius:20px; border:1px solid currentColor; margin-right:4px; }
+.chip.eco{ color:var(--bordo); } .chip.nuevo{ color:var(--salvia); } .chip.neutro{ color:var(--tinta-2); }
+
+/* Tablas */
+table{ width:100%; border-collapse:collapse; font-size:8.6pt; }
+th{ text-align:left; font-size:6.8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tinta-3); font-weight:600;
+  border-bottom:1.2px solid var(--tinta); padding:4px 6px; }
+td{ border-bottom:1px solid var(--linea); padding:5px 6px; vertical-align:top; }
+td.n{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--bordo); width:26px; }
+.escribir{ border-bottom:1px dotted var(--tinta-3); min-width:60mm; height:16px; }
+
+/* Ficha de creativo */
+.cab{ display:grid; grid-template-columns:30mm 1fr auto; gap:10px; align-items:stretch; border:1.2px solid var(--tinta); margin-bottom:8px; }
+.cab .num{ background:var(--tinta); color:var(--papel); display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.cab.nuevo .num{ background:var(--salvia); } .cab.eco .num{ background:var(--bordo); }
+.cab .num b{ font-family:'Fraunces',serif; font-size:34pt; font-weight:800; line-height:1; }
+.cab .num small{ font-size:6.5pt; letter-spacing:.2em; text-transform:uppercase; opacity:.8; }
+.cab .tit{ padding:7px 0; }
+.cab .tit h2{ font-size:17pt; line-height:1.1; margin:3px 0 4px; }
+.cab .tit .idea{ color:var(--tinta-2); font-size:9pt; }
+.cab .estado{ border-left:1.2px solid var(--tinta); padding:7px 10px; font-size:7.6pt; display:flex; flex-direction:column; justify-content:center; gap:3px; min-width:30mm; }
+.box{ display:inline-block; width:9px; height:9px; border:1.2px solid var(--tinta); margin-right:5px; vertical-align:-1px; background:#fff; }
+
+.ficha{ display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--linea); background:#fff; margin-bottom:8px; }
+.ficha div{ padding:5px 8px; border-right:1px solid var(--linea); border-bottom:1px solid var(--linea); font-size:8.4pt; }
+.ficha div:nth-child(4n){ border-right:none; }
+
+.gancho{ display:grid; grid-template-columns:1fr 1fr 1fr; border:1.2px solid var(--bordo); background:var(--bordo-claro); margin-bottom:8px; }
+.nuevo-sec .gancho{ border-color:var(--salvia); background:var(--salvia-claro); }
+.gancho > div{ padding:7px 9px; border-right:1px dashed rgba(0,0,0,.15); }
+.gancho > div:last-child{ border-right:none; }
+.gancho .t{ font-family:'Fraunces',serif; font-size:11pt; font-weight:600; line-height:1.25; }
+.gancho .pantalla{ font-family:'Inter',sans-serif; font-weight:800; letter-spacing:.02em; font-size:10.5pt; text-transform:uppercase; }
+.gancho-tit{ display:flex; justify-content:space-between; align-items:baseline; }
+
+.variantes{ counter-reset:v; margin:0 0 8px; padding:0; list-style:none; }
+.variantes li{ display:grid; grid-template-columns:20px 1fr 1fr; gap:8px; padding:4px 0; border-bottom:1px solid var(--linea); font-size:8.5pt; }
+.variantes li b.l{ font-family:'JetBrains Mono',monospace; color:var(--bordo); }
+.variantes li.rec{ background:var(--oro-claro); }
+.variantes .scr{ font-weight:700; text-transform:uppercase; font-size:7.8pt; letter-spacing:.03em; color:var(--tinta-2); }
+
+/* Guion en riel */
+.riel{ position:relative; margin:4px 0 8px; }
+.beat{ display:grid; grid-template-columns:17mm 34mm 1fr 44mm; gap:0; border-bottom:1px solid var(--linea); background:#fff; }
+.beat > div{ padding:5px 7px; font-size:8.5pt; }
+.beat .tc{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:8pt; background:var(--tinta); color:var(--papel); text-align:center; }
+.beat .pl{ color:var(--tinta-2); font-size:8pt; border-right:1px solid var(--linea); }
+.beat .dice{ font-family:'Fraunces',serif; font-size:9.6pt; }
+.beat .lee{ font-weight:800; text-transform:uppercase; font-size:7.8pt; letter-spacing:.02em; background:var(--papel-2); border-left:2px solid var(--oro); }
+.beat.h > div{ background:var(--papel-2); font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; font-family:'Inter',sans-serif; padding:3px 7px; }
+.beat.h .tc{ background:var(--papel-2); color:var(--tinta-3); }
+
+.check{ list-style:none; padding:0; margin:0; columns:2; column-gap:14px; }
+.check li{ break-inside:avoid; padding:2px 0 2px 16px; position:relative; font-size:8.4pt; }
+.check li::before{ content:''; position:absolute; left:0; top:4px; width:8px; height:8px; border:1.2px solid var(--tinta); background:#fff; }
+.check.one{ columns:1; }
+
+.ad{ border:1.2px solid var(--tinta); background:#fff; }
+.ad .row{ display:grid; grid-template-columns:30mm 1fr; border-bottom:1px solid var(--linea); }
+.ad .row:last-child{ border-bottom:none; }
+.ad .row > div{ padding:5px 8px; font-size:8.5pt; }
+.ad .row > div:first-child{ background:var(--papel-2); font-size:6.8pt; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--tinta-2); }
+
+.nota{ border-left:3px solid var(--oro); padding:4px 9px; background:var(--oro-claro); font-size:8.4pt; margin-bottom:6px; }
+.nota.roja{ border-color:var(--bordo); background:var(--bordo-claro); }
+.mini{ font-size:7.6pt; color:var(--tinta-3); }
+.fuente{ font-size:7.4pt; color:var(--tinta-3); word-break:break-all; }
+.sep{ height:8px; }
+
+/* Cuestionario */
+.q{ display:grid; grid-template-columns:22px 1fr; gap:6px; padding:5px 0 3px; border-bottom:1px solid var(--linea); break-inside:avoid; }
+.q .qn{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--bordo); font-size:8.4pt; padding-top:1px; }
+.q .qt{ font-weight:600; font-size:9pt; }
+.q .qt .star{ color:var(--oro); }
+.q .qh{ font-size:7.8pt; color:var(--tinta-3); margin-top:1px; }
+.q .lineas{ margin-top:4px; }
+.q .lineas i{ display:block; height:15px; border-bottom:1px dotted #b9ae9f; }
+.q .opts{ margin-top:3px; font-size:8.2pt; color:var(--tinta-2); }
+.q .opts span{ margin-right:12px; white-space:nowrap; }
+</style></head><body>
+<section class="page">
+  <div class="cab eco" style="grid-template-columns:30mm 1fr">
+    <div class="num"><small>Cuestionario</small><b>Q</b><small>Oferta 2027</small></div>
+    <div class="tit"><span class="chip eco">Trebelno Recepciones</span><span class="chip neutro">Campaña Agenda 2027</span>
+      <h2>Lo que necesitamos saber para armar la oferta y los guiones</h2>
+      <div class="idea">Son 40 preguntas en 10 bloques y llevan unos 20 minutos. Las marcadas con ★ son las que necesitamos antes de grabar. Si algún número no está cerrado, un rango sirve: el resto del trabajo avanza igual y el dato final se pone el día de la grabación.</div></div>
+  </div>
+  <div class="grid g3" style="margin-bottom:4px">
+    <div class="card oro"><span class="lbl">Por qué preguntamos</span>El test 1 vendió con la oferta económica. Para renovar ese ángulo necesitamos los números reales: precio, anticipo, cuotas y condiciones.</div>
+    <div class="card"><span class="lbl">Cómo responder</span>A mano sobre esta hoja, por audio de WhatsApp o en una llamada de 20 minutos con nosotros.</div>
+    <div class="card"><span class="lbl">Material para mandar</span><ul class="check one"><li>Lista de precios 2027</li><li>Fotos y videos de eventos</li><li>Logo en alta calidad</li></ul></div>
+  </div>
+  <div class="sec avoid" style="margin-top:12px"><span class="n">A</span><h2 style="font-size:15pt">El salón y los eventos</h2><span class="r">Para presentar el lugar con datos concretos.</span></div><div class="q"><div class="qn">01</div><div><div class="qt">¿Qué tipos de evento hacen y cuál es el que más venden? <span class="star">★</span></div><div class="qh">Ordenar de más a menos: 15 años, casamientos, cumpleaños, egresados, empresas, otros.</div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">02</div><div><div class="qt">¿Cuál es la capacidad del salón (mínimo y máximo de invitados)? ¿Tienen más de un salón o espacio? <span class="star">★</span></div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">03</div><div><div class="qt">¿Qué tiene el salón que no tenga otro de la zona? <span class="star">★</span></div><div class="qh">Parque, estacionamiento, pista con pantallas, ubicación, años de trayectoria, cocina propia…</div><div class="lineas"><i></i><i></i><i></i></div></div></div><div class="q"><div class="qn">04</div><div><div class="qt">¿Dirección exacta y desde qué zonas viene la mayoría de los clientes?</div><div class="qh">Sirve para definir el radio de la campaña.</div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">05</div><div><div class="qt">¿Hace cuántos años está el salón y cuántos eventos hicieron?</div><div class="qh">Solo números que puedan sostener.</div><div class="lineas"><i></i></div></div></div><div class="sec avoid" style="margin-top:12px"><span class="n">B</span><h2 style="font-size:15pt">Los paquetes: qué incluye cada uno</h2><span class="r">Con esto armamos el creativo 03 y el texto de los anuncios.</span></div><div class="q"><div class="qn">06</div><div><div class="qt">¿Qué paquetes ofrecen? Nombre de cada uno y para cuántos invitados. <span class="star">★</span></div><div class="qh">Ej.: Clásico / Premium / Full.</div><div class="lineas"><i></i><i></i><i></i></div></div></div><div class="q"><div class="qn">07</div><div><div class="qt">En el paquete más vendido, ¿qué está incluido? <span class="star">★</span></div><div class="qh">Marcar lo que corresponda y aclarar el detalle.</div><div class="opts"><span><i class="box"></i>Salón</span><span><i class="box"></i>Catering (menú)</span><span><i class="box"></i>Barra (tragos / sin alcohol)</span><span><i class="box"></i>Mesa dulce</span><span><i class="box"></i>DJ y sonido</span><span><i class="box"></i>Luces y pantallas</span><span><i class="box"></i>Ambientación / centros de mesa</span><span><i class="box"></i>Coordinación</span><span><i class="box"></i>Fotografía / video</span><span><i class="box"></i>Cotillón</span><span><i class="box"></i>Otro</span></div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">08</div><div><div class="qt">¿Qué se cobra aparte y qué cuesta? <span class="star">★</span></div><div class="qh">Ej.: barra libre premium, fotógrafo, hora extra, menores.</div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">09</div><div><div class="qt">¿Tienen proveedores propios o el cliente puede traer los suyos?</div><div class="lineas"><i></i></div></div></div><div class="sec avoid" style="margin-top:12px"><span class="n">C</span><h2 style="font-size:15pt">Precios y financiación</h2><span class="r">Es el corazón del ángulo ganador. Si no hay número cerrado, un rango sirve para avanzar.</span></div><div class="q"><div class="qn">10</div><div><div class="qt">Precio total del paquete más vendido para un evento de 2027 (y para cuántos invitados). <span class="star">★</span></div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">11</div><div><div class="qt">¿Cuánto hay que dejar para reservar la fecha? (monto o %) <span class="star">★</span></div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">12</div><div><div class="qt">¿En cuántas cuotas se puede pagar el resto? ¿Hasta cuándo antes del evento? <span class="star">★</span></div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">13</div><div><div class="qt">¿Las cuotas son fijas o se ajustan? Si se ajustan: ¿con qué índice y cada cuánto? <span class="star">★</span></div><div class="opts"><span><i class="box"></i>Fijas</span><span><i class="box"></i>Ajuste mensual</span><span><i class="box"></i>Ajuste trimestral</span><span><i class="box"></i>Otro</span></div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">14</div><div><div class="qt">¿Se puede congelar el precio? ¿Con qué condición y hasta qué fecha? <span class="star">★</span></div><div class="qh">Ej.: «reservando antes del 31/12 se mantiene el precio de 2026».</div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">15</div><div><div class="qt">¿Medios de pago? ¿Hay descuento por pago contado o con transferencia?</div><div class="opts"><span><i class="box"></i>Efectivo</span><span><i class="box"></i>Transferencia</span><span><i class="box"></i>Tarjeta (cuotas)</span><span><i class="box"></i>Dólares</span></div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">16</div><div><div class="qt">¿Cambia el precio según el día (viernes, sábado, domingo, día de semana) o según el mes? <span class="star">★</span></div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">17</div><div><div class="qt">La venta del test 1 ($13.000.000 en 12 cuotas): ¿qué paquete era, qué tipo de evento y para qué fecha? <span class="star">★</span></div><div class="qh">Nos sirve de ejemplo real para los números.</div><div class="lineas"><i></i><i></i></div></div></div><div class="sec avoid" style="margin-top:12px"><span class="n">D</span><h2 style="font-size:15pt">Agenda 2027 y disponibilidad</h2><span class="r">Para el creativo 06: la escasez tiene que ser real.</span></div><div class="q"><div class="qn">18</div><div><div class="qt">¿Cuántas fechas de 2027 ya están reservadas? ¿Cuáles? (aunque sea por mes) <span class="star">★</span></div><div class="qh">Las vamos a tachar en el calendario del video.</div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">19</div><div><div class="qt">¿Qué meses o sábados se piden más? ¿Cuántos sábados libres quedan en esos meses? <span class="star">★</span></div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">20</div><div><div class="qt">¿Con cuánta anticipación reserva normalmente un cliente de 15 años? ¿Y uno de casamiento?</div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">21</div><div><div class="qt">¿Cuántos eventos pueden hacer por día o por fin de semana?</div><div class="lineas"><i></i></div></div></div><div class="sec avoid" style="margin-top:12px"><span class="n">E</span><h2 style="font-size:15pt">Promociones y beneficios</h2><span class="r">Bonos que empujan la decisión sin bajar el precio.</span></div><div class="q"><div class="qn">22</div><div><div class="qt">¿Tienen alguna promoción para quien reserve 2027 antes de una fecha? ¿Cuál y hasta cuándo? <span class="star">★</span></div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">23</div><div><div class="qt">¿Qué beneficio podrían regalar sin que les cueste mucho?</div><div class="qh">Ej.: hora extra, mesa dulce, cabina de fotos, prueba de menú, cotillón, upgrade de barra.</div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">24</div><div><div class="qt">¿Hay cupo para esa promoción? (ej.: «las primeras 10 reservas»)</div><div class="lineas"><i></i></div></div></div><div class="sec avoid" style="margin-top:12px"><span class="n">F</span><h2 style="font-size:15pt">Garantías y condiciones</h2><span class="r">Lo que da tranquilidad a alguien que va a poner millones.</span></div><div class="q"><div class="qn">25</div><div><div class="qt">¿Qué pasa si el cliente necesita cambiar la fecha o cancelar? <span class="star">★</span></div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">26</div><div><div class="qt">¿Qué pasa si se atrasa con una cuota?</div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">27</div><div><div class="qt">¿Firman contrato? ¿Qué garantiza el salón por escrito?</div><div class="lineas"><i></i></div></div></div><div class="sec avoid" style="margin-top:12px"><span class="n">G</span><h2 style="font-size:15pt">Prueba social</h2><span class="r">Para el creativo 04 (testimonio).</span></div><div class="q"><div class="qn">28</div><div><div class="qt">¿Qué cliente de los últimos meses pagó en cuotas y quedaría contento de contarlo en un video? <span class="star">★</span></div><div class="qh">Nombre, evento, fecha y si autoriza imagen.</div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">29</div><div><div class="qt">¿Tienen videos o fotos de eventos reales (del fotógrafo) que podamos usar con permiso? <span class="star">★</span></div><div class="opts"><span><i class="box"></i>Sí</span><span><i class="box"></i>No</span><span><i class="box"></i>Algunos</span></div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">30</div><div><div class="qt">¿Reseñas en Google? ¿Cuántas y con qué puntaje?</div><div class="lineas"><i></i></div></div></div><div class="sec avoid" style="margin-top:12px"><span class="n">H</span><h2 style="font-size:15pt">Visitas y proceso de venta</h2><span class="r">Donde se gana o se pierde el lead que trae la pauta.</span></div><div class="q"><div class="qn">31</div><div><div class="qt">¿Se puede visitar el salón? ¿Qué días y horarios? ¿Hacen jornadas abiertas o degustaciones? <span class="star">★</span></div><div class="qh">Para el creativo 05.</div><div class="lineas"><i></i><i></i></div></div></div><div class="q"><div class="qn">32</div><div><div class="qt">¿Quién responde el WhatsApp, en qué horarios y en cuánto tiempo? <span class="star">★</span></div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">33</div><div><div class="qt">¿Cuáles son las 3 preguntas u objeciones que más reciben por WhatsApp? <span class="star">★</span></div><div class="lineas"><i></i><i></i><i></i></div></div></div><div class="q"><div class="qn">34</div><div><div class="qt">De cada 10 personas que visitan el salón, ¿cuántas reservan?</div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">35</div><div><div class="qt">¿Dónde registran hoy las consultas? (planilla, CRM, etiquetas de WhatsApp Business)</div><div class="lineas"><i></i></div></div></div><div class="sec avoid" style="margin-top:12px"><span class="n">I</span><h2 style="font-size:15pt">Competencia</h2><span class="r"></span></div><div class="q"><div class="qn">36</div><div><div class="qt">¿Con qué salones los comparan los clientes? ¿Por qué los eligen a ustedes y por qué no?</div><div class="lineas"><i></i><i></i><i></i></div></div></div><div class="sec avoid" style="margin-top:12px"><span class="n">J</span><h2 style="font-size:15pt">Logística de la grabación</h2><span class="r">Una jornada con el salón armado.</span></div><div class="q"><div class="qn">37</div><div><div class="qt">¿Qué día podemos grabar con el salón armado como para un evento (luces, humo, mesas)? <span class="star">★</span></div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">38</div><div><div class="qt">¿Quién pone la cara? (dueño/a, coordinador/a, organizador/a) ¿Se siente cómodo/a a cámara? <span class="star">★</span></div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">39</div><div><div class="qt">¿El técnico de luces y sonido puede estar durante el rodaje?</div><div class="opts"><span><i class="box"></i>Sí</span><span><i class="box"></i>No</span></div><div class="lineas"><i></i></div></div></div><div class="q"><div class="qn">40</div><div><div class="qt">¿Podemos grabar algunos minutos de un evento real (con permiso de los anfitriones)?</div><div class="opts"><span><i class="box"></i>Sí</span><span><i class="box"></i>No</span><span><i class="box"></i>A consultar</span></div><div class="lineas"><i></i></div></div></div>
+  <div class="sep"></div>
+  <div class="grid g2 avoid">
+    <div class="card"><span class="lbl">Respondió</span><div style="height:14mm"></div><div class="escribir"></div><span class="mini">Nombre, cargo y fecha</span></div>
+    <div class="card"><span class="lbl">Algo más que quieras contarnos</span><div style="height:20mm"></div></div>
+  </div>
+</section>
+</body></html>
