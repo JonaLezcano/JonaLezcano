@@ -1,0 +1,273 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Trebelno · 03 Plan de edición</title><style>/* Sistema visual "Claqueta" · Trebelno Recepciones · Agenda 2027 */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Montserrat:wght@500;700;800&display=swap');
+
+:root{
+  --papel:#faf6ef;
+  --papel-2:#f2ebdf;
+  --tinta:#1d1a17;
+  --tinta-2:#4a443d;
+  --tinta-3:#8a8178;
+  --linea:#ddd3c4;
+  --bordo:#7a1f2b;
+  --bordo-claro:#f3e3e3;
+  --oro:#b8914a;
+  --oro-claro:#f6edda;
+  --salvia:#2f5e55;
+  --salvia-claro:#e2ede9;
+  --var:#fff0a8;
+}
+@page{ size:A4; margin:14mm 14mm 16mm 14mm; }
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:#fff;
+  color:var(--tinta);
+  font-family:'Inter',sans-serif;
+  font-size:9.2pt;
+  line-height:1.45;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+h1,h2,h3,.serif{ font-family:'Fraunces',Georgia,serif; font-weight:600; margin:0; }
+p{ margin:0 0 6px; }
+.page{ page-break-after:always; break-after:page; position:relative; }
+.page:last-child{ page-break-after:auto; break-after:auto; }
+.avoid{ break-inside:avoid; page-break-inside:avoid; }
+
+/* Variables a reemplazar */
+.var{ background:var(--var); border-bottom:1.5px solid #d9b800; padding:0 3px; border-radius:2px;
+  font-family:'JetBrains Mono',monospace; font-size:.86em; font-weight:600; white-space:nowrap; color:#3a3000; }
+.validar{ color:var(--bordo); font-weight:700; font-size:.8em; letter-spacing:.04em; }
+
+/* Portada */
+.portada{ height:265mm; display:flex; flex-direction:column; justify-content:space-between;
+  border:1.2px solid var(--tinta); padding:16mm 14mm; background:
+  repeating-linear-gradient(135deg, transparent 0 14px, rgba(29,26,23,.025) 14px 15px), var(--papel); }
+.portada .claqueta{ display:flex; height:16mm; border:1.2px solid var(--tinta); }
+.portada .claqueta span{ flex:1; background:var(--tinta); transform:skewX(-28deg); margin:0 6px; }
+.portada .claqueta span:nth-child(even){ background:var(--papel); }
+.portada .kicker{ letter-spacing:.32em; font-size:8pt; text-transform:uppercase; color:var(--tinta-2); }
+.portada h1{ font-size:44pt; line-height:1.02; font-weight:800; letter-spacing:-.01em; margin-top:8mm; }
+.portada h1 em{ font-style:italic; color:var(--bordo); font-weight:600; }
+.portada .sub{ font-size:12pt; color:var(--tinta-2); max-width:130mm; margin-top:6mm; }
+.portada .pie{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1.2px solid var(--tinta); }
+.portada .pie div{ padding:8px 10px 0 0; }
+.portada .pie b{ display:block; font-size:7pt; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; }
+.portada .pie span{ font-family:'Fraunces',serif; font-size:11pt; }
+
+/* Encabezado de sección */
+.sec{ display:flex; align-items:baseline; gap:10px; border-bottom:1.2px solid var(--tinta); padding-bottom:5px; margin:0 0 10px; }
+.sec .n{ font-family:'JetBrains Mono',monospace; font-size:8pt; color:var(--bordo); font-weight:700; }
+.sec h2{ font-size:19pt; }
+.sec .r{ margin-left:auto; font-size:7.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--tinta-3); }
+h3{ font-size:11.5pt; margin:10px 0 5px; }
+.lead{ font-size:10.5pt; color:var(--tinta-2); max-width:165mm; }
+
+/* Tarjetas y grillas */
+.grid{ display:grid; gap:8px; }
+.g2{ grid-template-columns:1fr 1fr; } .g3{ grid-template-columns:repeat(3,1fr); } .g4{ grid-template-columns:repeat(4,1fr); }
+.card{ background:#fff; border:1px solid var(--linea); border-radius:4px; padding:8px 10px; }
+.card.tinta{ background:var(--tinta); color:var(--papel); border-color:var(--tinta); }
+.card.oro{ background:var(--oro-claro); border-color:#e6d3ad; }
+.card.bordo{ background:var(--bordo-claro); border-color:#e8c9c9; }
+.card.salvia{ background:var(--salvia-claro); border-color:#c6dad3; }
+.lbl{ display:block; font-size:6.8pt; letter-spacing:.18em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; margin-bottom:2px; }
+.card.tinta .lbl{ color:#bfb5a8; }
+.big{ font-family:'Fraunces',serif; font-size:22pt; font-weight:800; line-height:1; }
+ul.lim{ margin:2px 0 0; padding-left:14px; } ul.lim li{ margin-bottom:3px; }
+.chip{ display:inline-block; font-size:7pt; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+  padding:2px 7px; border-radius:20px; border:1px solid currentColor; margin-right:4px; }
+.chip.eco{ color:var(--bordo); } .chip.nuevo{ color:var(--salvia); } .chip.neutro{ color:var(--tinta-2); }
+
+/* Tablas */
+table{ width:100%; border-collapse:collapse; font-size:8.6pt; }
+th{ text-align:left; font-size:6.8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tinta-3); font-weight:600;
+  border-bottom:1.2px solid var(--tinta); padding:4px 6px; }
+td{ border-bottom:1px solid var(--linea); padding:5px 6px; vertical-align:top; }
+td.n{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--bordo); width:26px; }
+.escribir{ border-bottom:1px dotted var(--tinta-3); min-width:60mm; height:16px; }
+
+/* Ficha de creativo */
+.cab{ display:grid; grid-template-columns:30mm 1fr auto; gap:10px; align-items:stretch; border:1.2px solid var(--tinta); margin-bottom:8px; }
+.cab .num{ background:var(--tinta); color:var(--papel); display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.cab.nuevo .num{ background:var(--salvia); } .cab.eco .num{ background:var(--bordo); }
+.cab .num b{ font-family:'Fraunces',serif; font-size:34pt; font-weight:800; line-height:1; }
+.cab .num small{ font-size:6.5pt; letter-spacing:.2em; text-transform:uppercase; opacity:.8; }
+.cab .tit{ padding:7px 0; }
+.cab .tit h2{ font-size:17pt; line-height:1.1; margin:3px 0 4px; }
+.cab .tit .idea{ color:var(--tinta-2); font-size:9pt; }
+.cab .estado{ border-left:1.2px solid var(--tinta); padding:7px 10px; font-size:7.6pt; display:flex; flex-direction:column; justify-content:center; gap:3px; min-width:30mm; }
+.box{ display:inline-block; width:9px; height:9px; border:1.2px solid var(--tinta); margin-right:5px; vertical-align:-1px; background:#fff; }
+
+.ficha{ display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--linea); background:#fff; margin-bottom:8px; }
+.ficha div{ padding:5px 8px; border-right:1px solid var(--linea); border-bottom:1px solid var(--linea); font-size:8.4pt; }
+.ficha div:nth-child(4n){ border-right:none; }
+
+.gancho{ display:grid; grid-template-columns:1fr 1fr 1fr; border:1.2px solid var(--bordo); background:var(--bordo-claro); margin-bottom:8px; }
+.nuevo-sec .gancho{ border-color:var(--salvia); background:var(--salvia-claro); }
+.gancho > div{ padding:7px 9px; border-right:1px dashed rgba(0,0,0,.15); }
+.gancho > div:last-child{ border-right:none; }
+.gancho .t{ font-family:'Fraunces',serif; font-size:11pt; font-weight:600; line-height:1.25; }
+.gancho .pantalla{ font-family:'Inter',sans-serif; font-weight:800; letter-spacing:.02em; font-size:10.5pt; text-transform:uppercase; }
+.gancho-tit{ display:flex; justify-content:space-between; align-items:baseline; }
+
+.variantes{ counter-reset:v; margin:0 0 8px; padding:0; list-style:none; }
+.variantes li{ display:grid; grid-template-columns:20px 1fr 1fr; gap:8px; padding:4px 0; border-bottom:1px solid var(--linea); font-size:8.5pt; }
+.variantes li b.l{ font-family:'JetBrains Mono',monospace; color:var(--bordo); }
+.variantes li.rec{ background:var(--oro-claro); }
+.variantes .scr{ font-weight:700; text-transform:uppercase; font-size:7.8pt; letter-spacing:.03em; color:var(--tinta-2); }
+
+/* Guion en riel */
+.riel{ position:relative; margin:4px 0 8px; }
+.beat{ display:grid; grid-template-columns:17mm 34mm 1fr 44mm; gap:0; border-bottom:1px solid var(--linea); background:#fff; }
+.beat > div{ padding:5px 7px; font-size:8.5pt; }
+.beat .tc{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:8pt; background:var(--tinta); color:var(--papel); text-align:center; }
+.beat .pl{ color:var(--tinta-2); font-size:8pt; border-right:1px solid var(--linea); }
+.beat .dice{ font-family:'Fraunces',serif; font-size:9.6pt; }
+.beat .lee{ font-weight:800; text-transform:uppercase; font-size:7.8pt; letter-spacing:.02em; background:var(--papel-2); border-left:2px solid var(--oro); }
+.beat.h > div{ background:var(--papel-2); font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; font-family:'Inter',sans-serif; padding:3px 7px; }
+.beat.h .tc{ background:var(--papel-2); color:var(--tinta-3); }
+
+.check{ list-style:none; padding:0; margin:0; columns:2; column-gap:14px; }
+.check li{ break-inside:avoid; padding:2px 0 2px 16px; position:relative; font-size:8.4pt; }
+.check li::before{ content:''; position:absolute; left:0; top:4px; width:8px; height:8px; border:1.2px solid var(--tinta); background:#fff; }
+.check.one{ columns:1; }
+
+.ad{ border:1.2px solid var(--tinta); background:#fff; }
+.ad .row{ display:grid; grid-template-columns:30mm 1fr; border-bottom:1px solid var(--linea); }
+.ad .row:last-child{ border-bottom:none; }
+.ad .row > div{ padding:5px 8px; font-size:8.5pt; }
+.ad .row > div:first-child{ background:var(--papel-2); font-size:6.8pt; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--tinta-2); }
+
+.nota{ border-left:3px solid var(--oro); padding:4px 9px; background:var(--oro-claro); font-size:8.4pt; margin-bottom:6px; }
+.nota.roja{ border-color:var(--bordo); background:var(--bordo-claro); }
+.mini{ font-size:7.6pt; color:var(--tinta-3); }
+.fuente{ font-size:7.4pt; color:var(--tinta-3); word-break:break-all; }
+.sep{ height:8px; }
+
+/* Cuestionario */
+.q{ display:grid; grid-template-columns:22px 1fr; gap:6px; padding:5px 0 3px; border-bottom:1px solid var(--linea); break-inside:avoid; }
+.q .qn{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--bordo); font-size:8.4pt; padding-top:1px; }
+.q .qt{ font-weight:600; font-size:9pt; }
+.q .qt .star{ color:var(--oro); }
+.q .qh{ font-size:7.8pt; color:var(--tinta-3); margin-top:1px; }
+.q .lineas{ margin-top:4px; }
+.q .lineas i{ display:block; height:15px; border-bottom:1px dotted #b9ae9f; }
+.q .opts{ margin-top:3px; font-size:8.2pt; color:var(--tinta-2); }
+.q .opts span{ margin-right:12px; white-space:nowrap; }
+
+/* Fuente de cada plano */
+.src{ display:inline-block; font-size:6.4pt; font-weight:800; letter-spacing:.06em; padding:1px 5px; border-radius:3px; margin:0 3px 2px 0; color:#fff; vertical-align:1px; }
+.src.G{ background:var(--tinta); } .src.A{ background:var(--oro); } .src.IA{ background:var(--salvia); }
+
+/* Banda de título de cada documento */
+.doc{ display:grid; grid-template-columns:34mm 1fr; border:1.2px solid var(--tinta); margin-bottom:10px; }
+.doc .num{ background:var(--tinta); color:var(--papel); display:flex; flex-direction:column; justify-content:center; align-items:center; padding:8px; }
+.doc .num b{ font-family:'Fraunces',serif; font-size:40pt; font-weight:800; line-height:1; }
+.doc .num small{ font-size:6.5pt; letter-spacing:.2em; text-transform:uppercase; opacity:.85; text-align:center; }
+.doc .tit{ padding:9px 12px; }
+.doc .tit h1{ font-size:21pt; line-height:1.08; margin:4px 0 5px; }
+.doc .tit p{ color:var(--tinta-2); font-size:9.2pt; margin:0; }
+.doc .meta{ display:flex; gap:16px; margin-top:6px; font-size:7.6pt; color:var(--tinta-3); }
+.doc .meta b{ color:var(--tinta); font-weight:600; }
+.indice{ display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:10px; }
+.indice div{ border-top:2px solid var(--tinta); padding-top:4px; font-size:8pt; }
+.indice div.on{ border-top-color:var(--bordo); }
+.indice b{ display:block; font-family:'Fraunces',serif; font-size:10.5pt; }
+
+/* Maqueta de pantalla 9:16 para subtítulos */
+.phone{ width:62mm; height:110.2mm; position:relative; border-radius:6px; overflow:hidden; flex:none;
+  background:linear-gradient(180deg,#2a1013 0%,#5a1a22 35%,#24120f 70%,#0e0a09 100%); font-family:'Montserrat',sans-serif; }
+.phone .luz{ position:absolute; inset:0; background:radial-gradient(circle at 30% 30%,rgba(255,180,120,.35),transparent 40%),radial-gradient(circle at 75% 45%,rgba(200,40,60,.4),transparent 45%); }
+.phone .persona{ position:absolute; left:50%; bottom:22%; transform:translateX(-50%); width:30mm; height:52mm; border-radius:15mm 15mm 4mm 4mm; background:rgba(0,0,0,.45); }
+.phone .zs{ position:absolute; left:3.8mm; right:3.8mm; top:14.06%; bottom:34.9%; border:1px dashed rgba(255,90,90,.9); }
+.phone .pill{ position:absolute; left:4.4mm; top:18%; background:rgba(0,0,0,.6); color:#fff; font-weight:500; font-size:5.6pt; padding:2px 6px; border-radius:20px; }
+.phone .oferta{ position:absolute; left:50%; transform:translateX(-50%); top:27%; background:var(--rojo-marca,#c4161c); color:#fff; font-weight:800; font-size:7pt; padding:4px 8px; border-radius:6px; text-align:center; line-height:1.2; white-space:nowrap; }
+.phone .sub{ position:absolute; left:4.4mm; right:4.4mm; bottom:37%; text-align:center; color:#fff; font-weight:700; font-size:10pt; line-height:1.15; text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 2px rgba(0,0,0,.9); }
+.phone .sub em{ font-style:normal; color:#ff4d55; }
+.phone .botones{ position:absolute; right:2mm; bottom:20%; display:flex; flex-direction:column; gap:3mm; }
+.phone .botones i{ width:4mm; height:4mm; border-radius:50%; background:rgba(255,255,255,.55); display:block; }
+.phone .cap{ position:absolute; left:3mm; bottom:5%; right:12mm; height:6mm; background:rgba(255,255,255,.12); border-radius:2px; }
+.phone .etq{ position:absolute; right:4mm; font-size:5pt; color:rgba(255,120,120,.95); font-family:'JetBrains Mono',monospace; }
+</style></head><body><section class="page"><div class="doc"><div class="num"><small>Trebelno · Agenda 2027</small><b>03</b><small>Plan de edición</small></div>
+    <div class="tit"><span class="chip eco">Campaña Meta Ads · Agenda 2027</span><h1>Plan de edición</h1><p>Las reglas son las mismas que en la pauta de Menutti con el avatar de Diego: subtítulos, rótulos, zona segura, sonido y exportación. Después vienen el flujo de IA y el mapa de cada video.</p>
+    <div class="meta"><span>Para: <b>Javi · editor</b></span><span>Versión: <b>v2 · 15 de noviembre de 2026</b></span><span>Dirección: <b>Jona</b></span><span>Rodaje y edición: <b>Javi</b></span></div></div></div>
+    <div class="indice"><div class=""><span class="mini">00</span><b>Estrategia y campaña</b><span class="mini">Para Jona y el cliente</span></div><div class=""><span class="mini">01</span><b>Guiones</b><span class="mini">Para quien pone la cara</span></div><div class=""><span class="mini">02</span><b>Plan de grabación</b><span class="mini">Para Javi · filmmaker</span></div><div class="on"><span class="mini">03</span><b>Plan de edición</b><span class="mini">Para Javi · editor</span></div></div><div class="sec"><span class="n">1</span><h2>Lo que vale para los seis videos</h2><span class="r">Igual que Menutti</span></div>
+    <div style="display:flex; gap:12px; align-items:flex-start">
+      <div class="phone"><div class="luz"></div><div class="persona"></div><div class="zs"></div>
+        <span class="etq" style="top:12%">y 270</span><span class="etq" style="top:65.5%">y 1250</span>
+        <div class="pill">Presentador generado con IA</div>
+        <div class="oferta">HASTA 24 CUOTAS<br><span style="font-weight:500;font-size:5.6pt">Reservá tu fecha 2027</span></div>
+        <div class="sub">Tu fiesta 2027 en hasta<br><em>24 CUOTAS</em></div>
+        <div class="botones"><i></i><i></i><i></i></div><div class="cap"></div></div>
+      <div style="flex:1">
+        <h3 style="margin-top:0">Subtítulos (como en Menutti, no los de motion graphics)</h3>
+        <ul class="lim">
+          <li>En Premiere: panel Texto → <b>Transcribir secuencia</b> (español) → <b>Crear subtítulos</b>. Corregir «Trebelno», «WhatsApp» y los montos.</li>
+          <li>Una o dos líneas, <b>Montserrat Bold</b>, blancos con sombra.</li>
+          <li>Las <b>palabras clave en el rojo de Trebelno</b> (<span class="var">ROJO MARCA</span>; si sobre la imagen oscura no se lee, usar la versión más clara del rojo).</li>
+          <li>Abajo, sin pasar de y = 1250. Sin animaciones por palabra, sin emojis y sin cajas de color.</li>
+        </ul>
+        <h3>Zona segura</h3>
+        <p>Textos, subtítulos y logo entre <b>y = 270</b> (el 14% de arriba) e <b>y = 1250</b> (el 35% de abajo), y a más de 65 px de cada costado. Confirmar con la vista previa de Ads Manager.</p>
+        <h3>Rótulos (los armás vos)</h3>
+        <ul class="lim">
+          <li>Avisos: píldora negra al 60% con texto blanco, Montserrat Medium 24 px, arriba a la izquierda (desde x 72, y 352).</li>
+          <li><b>Tarjeta de oferta</b> (la que en Menutti era la de 72 hs): fondo rojo de marca, texto blanco: «HASTA 24 CUOTAS · Reservá tu fecha 2027». Va desde el CTA hasta el final, arriba de la cabeza (y 470 a 625).</li>
+          <li>Placa final de 1 a 1,5 s: <span class="var">FONDO PLACA</span>, logo en PNG y «Agenda 2027 · Escribinos por WhatsApp».</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:8px">
+      <div class="card"><span class="lbl">Cómo se arma</span><ul class="lim"><li>Secuencia de 1080 × 1920 a 30 cuadros por segundo.</li><li>Carpetas: Voz, Anfitrión, Archivo, IA, Gráficos y Música.</li><li><b>Voz primero</b>: las frases habladas en A1; los cortes caen en las pausas.</li><li>Tomas de archivo: acercamiento suave del 100 al 108%.</li></ul></div>
+      <div class="card"><span class="lbl">Sonido y color</span><ul class="lim"><li>Voz adelante, música entre 20 y 25 dB por debajo, con atenuación automática.</li><li>El sonido real de las fiestas puede quedar debajo de la voz: le da vida.</li><li>Música con licencia para publicidad paga.</li><li>Una sola corrección de color por video; igualar la temperatura de las distintas fiestas.</li></ul></div>
+      <div class="card"><span class="lbl">Reglas fijas</span><ul class="lim"><li>Rótulo de IA siempre que haya una escena o persona generada.</li><li>Ninguna marca ajena en pantalla.</li><li>Ningún número que el cliente no haya confirmado.</li><li>Frases de testimonios textuales, sin cambiar palabras.</li><li>El mismo cierre en todos: WhatsApp + tarjeta de 24 cuotas.</li></ul></div>
+    </div></section><section class="page"><div class="sec"><span class="n">2</span><h2>Flujo de IA</h2><span class="r">Con las tomas del bloque 0, 6 y 7</span></div>
+    <table><tr><th>Tarea</th><th>Entrada</th><th>Herramienta y proceso</th><th>Rótulo en pantalla</th></tr><tr><td><b>Animar fotos de fiestas</b></td><td>Fotos del fotógrafo</td><td>Firefly (Kling 3.0 / Veo 3.1): imagen a video, movimiento suave de 5 s</td><td>Imagen animada con IA</td></tr><tr><td><b>Salón vacío → ambientado</b></td><td>Toma fija del salón vacío (bloque 0)</td><td>Firefly relleno generativo / Gemini Image: 3 estilos, y después imagen a video</td><td>Escena generada con IA</td></tr><tr><td><b>Horizontal → vertical</b></td><td>Archivo 16:9</td><td>Expandir generativo de Firefly o reencuadre automático de Premiere</td><td>—</td></tr><tr><td><b>Mejorar resolución</b></td><td>Archivo de baja calidad</td><td>Escalado con IA (Firefly / el que use Javi)</td><td>—</td></tr><tr><td><b>Avatar y voz del anfitrión/a</b></td><td>Bloque 6 (2 min a cámara + 3 min de voz)</td><td>ElevenLabs para la voz + sincronización de labios para ganchos nuevos</td><td>Presentador generado con IA</td></tr><tr><td><b>Pantalla del celular</b></td><td>Toma con pantalla verde (bloque 7)</td><td>Ultra Key + seguimiento, o el clip ya reemplazado como en Menutti</td><td>Conversación de ejemplo</td></tr><tr><td><b>Hielo en cámara lenta</b></td><td>Foto de la frapera</td><td>Imagen a video</td><td>Imagen animada con IA</td></tr></table>
+    <p class="mini" style="margin-top:4px">Las herramientas son las del flujo de Menutti; si Javi tiene otra que dé mejor resultado, se usa esa. Cada clip generado se revisa cuadro por cuadro (caras, manos, textos que se deforman) antes de editarlo.</p>
+    <div class="sec" style="margin-top:12px"><span class="n">3</span><h2>Mapa de cada video</h2><span class="r">01 y 02</span></div>
+    <div class="grid" style="gap:6px"><div class="card avoid" style="padding:6px 8px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><b class="serif" style="font-size:10.5pt">01 · Hacé la cuenta: tu fiesta 2027 por mes</b><span class="mini">Clave en rojo: <b>CUOTAS · POR MES · 2027</b></span></div>
+          <table style="font-size:7.8pt;margin-top:3px"><tr><th>Tiempo</th><th>Imagen y fuente</th><th>Texto en pantalla</th></tr><tr><td class="n" style="width:42px;color:var(--tinta)">0–3 s</td><td><span class="src G">GRABAR</span> Pista vacía; gira el celular</td><td>¿CUÁNTO SALE TU FIESTA 2027 POR MES?</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">3–8 s</td><td><span class="src A">ARCHIVO</span> Entrada y pista de una fiesta real (VO)</td><td>PAQUETE COMPLETO · <span class="var">INVITADOS</span> INVITADOS</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">8–14 s</td><td><span class="src G">GRABAR</span> Primer plano de la calculadora</td><td>HASTA 24 CUOTAS</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">14–21 s</td><td><span class="src A">ARCHIVO</span> Salón armado y mesa dulce de fiestas reales (VO)</td><td>RESERVÁS CON <span class="var">ANTICIPO</span></td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">21–28 s</td><td><span class="src G">GRABAR</span> Primer plano del anfitrión/a</td><td>ESCRIBINOS TU FECHA →</td></tr></table>
+          <p class="mini" style="margin:3px 0 0"><b>Corte de 15 s:</b> Gancho (0–3 s) + calculadora (8–14 s) + cierre (21–28 s). · <b>Archivo:</b> Trebelno_C01A_cuotas_30s.mp4</p></div><div class="card avoid" style="padding:6px 8px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><b class="serif" style="font-size:10.5pt">02 · Congelá hoy el precio de tu fiesta 2027</b><span class="mini">Clave en rojo: <b>CONGELÁ · PRECIO DE HOY · 24 CUOTAS</b></span></div>
+          <table style="font-size:7.8pt;margin-top:3px"><tr><th>Tiempo</th><th>Imagen y fuente</th><th>Texto en pantalla</th></tr><tr><td class="n" style="width:42px;color:var(--tinta)">0–3 s</td><td><span class="src G">GRABAR</span> Frapera con hielo y la etiqueta</td><td>CONGELÁ EL PRECIO DE TU FIESTA 2027</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">3–9 s</td><td><span class="src G">GRABAR</span> Plano medio en la barra</td><td>PRECIO DE HOY HASTA EL <span class="var">FECHA LIMITE</span></td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">9–16 s</td><td><span class="src A">ARCHIVO</span> Salón armado y mesa dulce de fiestas reales (VO)</td><td><span class="var">ANTICIPO</span> + HASTA 24 CUOTAS</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">16–22 s</td><td><span class="src A">ARCHIVO</span> Pista llena de una fiesta real (VO)</td><td>TU FIESTA, YA EN MARCHA</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">22–28 s</td><td><span class="src G">GRABAR</span> Primer plano en la barra</td><td>ESCRIBÍ «CONGELAR» →</td></tr></table>
+          <p class="mini" style="margin:3px 0 0"><b>Corte de 15 s:</b> Gancho (0–3 s) + fecha límite (3–9 s) + cierre (22–28 s). · <b>Archivo:</b> Trebelno_C02A_congelar_30s.mp4</p></div></div></section><section class="page"><div class="sec"><span class="n">3</span><h2>Mapa de cada video</h2><span class="r">03 a 05</span></div>
+    <div class="grid" style="gap:6px"><div class="card avoid" style="padding:6px 8px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><b class="serif" style="font-size:10.5pt">03 · Todo lo que entra en tu fiesta 2027</b><span class="mini">Clave en rojo: <b>INCLUIDO · TODO · 24 CUOTAS</b></span></div>
+          <table style="font-size:7.8pt;margin-top:3px"><tr><th>Tiempo</th><th>Imagen y fuente</th><th>Texto en pantalla</th></tr><tr><td class="n" style="width:42px;color:var(--tinta)">0–3 s</td><td><span class="src G">GRABAR</span> Apertura de puertas hacia la pista</td><td>TODO ESTO · HASTA 24 CUOTAS</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">3–8 s</td><td><span class="src G">GRABAR</span> Salón con las mesas armadas</td><td>1/7 · SALÓN</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">8–13 s</td><td><span class="src A">ARCHIVO</span> Platos servidos en una fiesta real</td><td>2/7 · CATERING</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">13–17 s</td><td><span class="src A">ARCHIVO</span> Barra en acción</td><td>3/7 · BARRA</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">17–21 s</td><td><span class="src A">ARCHIVO</span> DJ y luces · ambientaciones en 3 estilos</td><td>4/7 DJ · 5/7 AMBIENTACIÓN</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">21–26 s</td><td><span class="src G">GRABAR</span> Coordinador/a con la planilla</td><td>6/7 · 7/7</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">26–32 s</td><td><span class="src G">GRABAR</span> Primer plano en la pista</td><td>PEDÍ EL DETALLE →</td></tr></table>
+          <p class="mini" style="margin:3px 0 0"><b>Corte de 15 s:</b> Gancho + ítems 2, 3 y 4 acelerados (1,5 s cada uno) + cierre. · <b>Archivo:</b> Trebelno_C03A_incluye_30s.mp4</p></div><div class="card avoid" style="padding:6px 8px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><b class="serif" style="font-size:10.5pt">04 · Lo cuentan ellas: madres y quinceañeras</b><span class="mini">Clave en rojo: <b>Las palabras emotivas de cada frase · 24 CUOTAS</b></span></div>
+          <table style="font-size:7.8pt;margin-top:3px"><tr><th>Tiempo</th><th>Imagen y fuente</th><th>Texto en pantalla</th></tr><tr><td class="n" style="width:42px;color:var(--tinta)">0–3 s</td><td><span class="src A">ARCHIVO</span> Entrada de la quinceañera → madre</td><td><span class="var">FRASE MADRE 1</span></td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">3–10 s</td><td><span class="src A">ARCHIVO</span> Testimonio de la quinceañera</td><td><span class="var">FRASE QUINCEAÑERA</span></td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">10–17 s</td><td><span class="src A">ARCHIVO</span> Vals, velas, pista (VO del testimonio)</td><td>—</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">17–23 s</td><td><span class="src G">GRABAR</span> Anfitrión/a en la pista</td><td>HASTA 24 CUOTAS</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">23–30 s</td><td><span class="src G">GRABAR</span> Primer plano del anfitrión/a</td><td>ESCRIBINOS · AGENDA 2027 →</td></tr></table>
+          <p class="mini" style="margin:3px 0 0"><b>Corte de 15 s:</b> Gancho (0–3 s) + quinceañera (3–7 s) + oferta y cierre del anfitrión/a. · <b>Archivo:</b> Trebelno_C04A_testimonios_30s.mp4</p></div><div class="card avoid" style="padding:6px 8px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><b class="serif" style="font-size:10.5pt">05 · Entrá a tu fiesta 2027 antes de reservarla</b><span class="mini">Clave en rojo: <b>TU FIESTA · VISITA · 2027</b></span></div>
+          <table style="font-size:7.8pt;margin-top:3px"><tr><th>Tiempo</th><th>Imagen y fuente</th><th>Texto en pantalla</th></tr><tr><td class="n" style="width:42px;color:var(--tinta)">0–3 s</td><td><span class="src G">GRABAR</span> POV: puerta y luces</td><td>ENTRÁ A TU FIESTA 2027</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">3–8 s</td><td><span class="src G">GRABAR</span><span class="src A">ARCHIVO</span> POV: recepción (+ invitados de archivo)</td><td>LA RECEPCIÓN</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">8–14 s</td><td><span class="src G">GRABAR</span> POV: travelling entre mesas armadas</td><td>EL SALÓN</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">14–20 s</td><td><span class="src G">GRABAR</span><span class="src A">ARCHIVO</span> La pista: vacía → llena de una fiesta real</td><td>LA PISTA</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">20–25 s</td><td><span class="src A">ARCHIVO</span> Mesa dulce y barra</td><td>TODO INCLUIDO</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">25–32 s</td><td><span class="src G">GRABAR</span> Anfitrión/a en la pista, a cámara</td><td>ESCRIBÍ «VISITA» →</td></tr></table>
+          <p class="mini" style="margin:3px 0 0"><b>Corte de 15 s:</b> Puerta (0–3 s) + pista vacía → llena (14–20 s) + cierre (25–32 s). · <b>Archivo:</b> Trebelno_C05A_visita_30s.mp4</p></div></div></section><section class="page"><div class="sec"><span class="n">3</span><h2>Mapa de cada video</h2><span class="r">06</span></div><div class="card avoid" style="padding:6px 8px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><b class="serif" style="font-size:10.5pt">06 · Agenda 2027: estos sábados ya no están</b><span class="mini">Clave en rojo: <b>2027 · SÁBADOS · TU FECHA</b></span></div>
+          <table style="font-size:7.8pt;margin-top:3px"><tr><th>Tiempo</th><th>Imagen y fuente</th><th>Texto en pantalla</th></tr><tr><td class="n" style="width:42px;color:var(--tinta)">0–3 s</td><td><span class="src G">GRABAR</span> Fibrón tachando un sábado</td><td>AGENDA 2027 · YA SE ESTÁ LLENANDO</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">3–9 s</td><td><span class="src G">GRABAR</span> Plano medio junto al calendario</td><td>LOS SÁBADOS SE VAN PRIMERO</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">9–15 s</td><td><span class="src G">GRABAR</span> Primer plano del calendario</td><td><span class="var">MES PICO</span> · QUEDAN <span class="var">N FECHAS</span></td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">15–21 s</td><td><span class="src A">ARCHIVO</span> Momentos de fiestas reales (VO)</td><td>TU FECHA, TU FIESTA</td></tr><tr><td class="n" style="width:42px;color:var(--tinta)">21–27 s</td><td><span class="src G">GRABAR</span> Primer plano del anfitrión/a</td><td>MANDANOS TU FECHA →</td></tr></table>
+          <p class="mini" style="margin:3px 0 0"><b>Corte de 15 s:</b> Gancho (0–3 s) + calendario (9–15 s) + cierre (21–27 s). · <b>Archivo:</b> Trebelno_C06A_fechas_30s.mp4</p></div>
+    <div class="sec" style="margin-top:12px"><span class="n">4</span><h2>Exportación y entrega</h2><span class="r">Para pautar</span></div>
+    <div class="grid g2">
+      <div class="card"><span class="lbl">Exportación</span><ul class="lim">
+        <li>H.264, 1080 × 1920, 30 cuadros por segundo, audio AAC.</li>
+        <li>Nombres: Trebelno_C01A_cuotas_30s.mp4 y Trebelno_C01A_cuotas_15s.mp4; la versión B, C01B. Sin música: _sin_musica.</li>
+        <li>4:5 (1080 × 1350) solo para 01 y 03.</li>
+        <li>Guardar el proyecto completo para hacer las variantes del que funcione mejor.</li></ul></div>
+      <div class="card"><span class="lbl">Orden de entrega</span><ul class="check one">
+        <li>Semana 2: las 6 versiones A + sus cortes de 15 s</li>
+        <li>Semana 3: las versiones B de los que sigan activos</li>
+        <li>Semana 3–4: ganchos C/D y variantes con IA para la renovación</li></ul></div>
+    </div>
+    <div class="sec" style="margin-top:12px"><span class="n">5</span><h2>Antes de entregar</h2><span class="r">Revisar en cada video</span></div>
+    <ul class="check one" style="font-size:9pt">
+      <li>9:16 y 1080 × 1920</li>
+      <li>El gancho se entiende en los primeros 1 a 3 s, sin sonido</li>
+      <li>Queda claro que habla un salón de fiestas y que la fiesta se paga en hasta 24 cuotas</li>
+      <li>Ningún número sin confirmar (los amarillos del guion ya reemplazados)</li>
+      <li>Subtítulos al estilo Menutti, legibles y dentro de la zona segura; palabras clave en rojo</li>
+      <li>La voz se escucha clara en el parlante del celular</li>
+      <li>Rótulos de IA donde corresponde y ninguna marca ajena</li>
+      <li>Tarjeta de 24 cuotas en el cierre y placa final con el logo</li>
+      <li>El corte de 15 s dura 15 s o menos</li>
+      <li>Exportado con y sin música, con los nombres de esta guía</li>
+    </ul>
+    <div class="nota" style="margin-top:8px">Cuando tengas cada exportación, mandásela a Jona: se revisa cuadro por cuadro (caras, labios, manos, números y tiempos) antes de subirla a Meta.</div></section></body></html>

@@ -1,0 +1,279 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Trebelno · 00 Estrategia y campaña</title><style>/* Sistema visual "Claqueta" · Trebelno Recepciones · Agenda 2027 */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Montserrat:wght@500;700;800&display=swap');
+
+:root{
+  --papel:#faf6ef;
+  --papel-2:#f2ebdf;
+  --tinta:#1d1a17;
+  --tinta-2:#4a443d;
+  --tinta-3:#8a8178;
+  --linea:#ddd3c4;
+  --bordo:#7a1f2b;
+  --bordo-claro:#f3e3e3;
+  --oro:#b8914a;
+  --oro-claro:#f6edda;
+  --salvia:#2f5e55;
+  --salvia-claro:#e2ede9;
+  --var:#fff0a8;
+}
+@page{ size:A4; margin:14mm 14mm 16mm 14mm; }
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:#fff;
+  color:var(--tinta);
+  font-family:'Inter',sans-serif;
+  font-size:9.2pt;
+  line-height:1.45;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+h1,h2,h3,.serif{ font-family:'Fraunces',Georgia,serif; font-weight:600; margin:0; }
+p{ margin:0 0 6px; }
+.page{ page-break-after:always; break-after:page; position:relative; }
+.page:last-child{ page-break-after:auto; break-after:auto; }
+.avoid{ break-inside:avoid; page-break-inside:avoid; }
+
+/* Variables a reemplazar */
+.var{ background:var(--var); border-bottom:1.5px solid #d9b800; padding:0 3px; border-radius:2px;
+  font-family:'JetBrains Mono',monospace; font-size:.86em; font-weight:600; white-space:nowrap; color:#3a3000; }
+.validar{ color:var(--bordo); font-weight:700; font-size:.8em; letter-spacing:.04em; }
+
+/* Portada */
+.portada{ height:265mm; display:flex; flex-direction:column; justify-content:space-between;
+  border:1.2px solid var(--tinta); padding:16mm 14mm; background:
+  repeating-linear-gradient(135deg, transparent 0 14px, rgba(29,26,23,.025) 14px 15px), var(--papel); }
+.portada .claqueta{ display:flex; height:16mm; border:1.2px solid var(--tinta); }
+.portada .claqueta span{ flex:1; background:var(--tinta); transform:skewX(-28deg); margin:0 6px; }
+.portada .claqueta span:nth-child(even){ background:var(--papel); }
+.portada .kicker{ letter-spacing:.32em; font-size:8pt; text-transform:uppercase; color:var(--tinta-2); }
+.portada h1{ font-size:44pt; line-height:1.02; font-weight:800; letter-spacing:-.01em; margin-top:8mm; }
+.portada h1 em{ font-style:italic; color:var(--bordo); font-weight:600; }
+.portada .sub{ font-size:12pt; color:var(--tinta-2); max-width:130mm; margin-top:6mm; }
+.portada .pie{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1.2px solid var(--tinta); }
+.portada .pie div{ padding:8px 10px 0 0; }
+.portada .pie b{ display:block; font-size:7pt; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; }
+.portada .pie span{ font-family:'Fraunces',serif; font-size:11pt; }
+
+/* Encabezado de sección */
+.sec{ display:flex; align-items:baseline; gap:10px; border-bottom:1.2px solid var(--tinta); padding-bottom:5px; margin:0 0 10px; }
+.sec .n{ font-family:'JetBrains Mono',monospace; font-size:8pt; color:var(--bordo); font-weight:700; }
+.sec h2{ font-size:19pt; }
+.sec .r{ margin-left:auto; font-size:7.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--tinta-3); }
+h3{ font-size:11.5pt; margin:10px 0 5px; }
+.lead{ font-size:10.5pt; color:var(--tinta-2); max-width:165mm; }
+
+/* Tarjetas y grillas */
+.grid{ display:grid; gap:8px; }
+.g2{ grid-template-columns:1fr 1fr; } .g3{ grid-template-columns:repeat(3,1fr); } .g4{ grid-template-columns:repeat(4,1fr); }
+.card{ background:#fff; border:1px solid var(--linea); border-radius:4px; padding:8px 10px; }
+.card.tinta{ background:var(--tinta); color:var(--papel); border-color:var(--tinta); }
+.card.oro{ background:var(--oro-claro); border-color:#e6d3ad; }
+.card.bordo{ background:var(--bordo-claro); border-color:#e8c9c9; }
+.card.salvia{ background:var(--salvia-claro); border-color:#c6dad3; }
+.lbl{ display:block; font-size:6.8pt; letter-spacing:.18em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; margin-bottom:2px; }
+.card.tinta .lbl{ color:#bfb5a8; }
+.big{ font-family:'Fraunces',serif; font-size:22pt; font-weight:800; line-height:1; }
+ul.lim{ margin:2px 0 0; padding-left:14px; } ul.lim li{ margin-bottom:3px; }
+.chip{ display:inline-block; font-size:7pt; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+  padding:2px 7px; border-radius:20px; border:1px solid currentColor; margin-right:4px; }
+.chip.eco{ color:var(--bordo); } .chip.nuevo{ color:var(--salvia); } .chip.neutro{ color:var(--tinta-2); }
+
+/* Tablas */
+table{ width:100%; border-collapse:collapse; font-size:8.6pt; }
+th{ text-align:left; font-size:6.8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tinta-3); font-weight:600;
+  border-bottom:1.2px solid var(--tinta); padding:4px 6px; }
+td{ border-bottom:1px solid var(--linea); padding:5px 6px; vertical-align:top; }
+td.n{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--bordo); width:26px; }
+.escribir{ border-bottom:1px dotted var(--tinta-3); min-width:60mm; height:16px; }
+
+/* Ficha de creativo */
+.cab{ display:grid; grid-template-columns:30mm 1fr auto; gap:10px; align-items:stretch; border:1.2px solid var(--tinta); margin-bottom:8px; }
+.cab .num{ background:var(--tinta); color:var(--papel); display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.cab.nuevo .num{ background:var(--salvia); } .cab.eco .num{ background:var(--bordo); }
+.cab .num b{ font-family:'Fraunces',serif; font-size:34pt; font-weight:800; line-height:1; }
+.cab .num small{ font-size:6.5pt; letter-spacing:.2em; text-transform:uppercase; opacity:.8; }
+.cab .tit{ padding:7px 0; }
+.cab .tit h2{ font-size:17pt; line-height:1.1; margin:3px 0 4px; }
+.cab .tit .idea{ color:var(--tinta-2); font-size:9pt; }
+.cab .estado{ border-left:1.2px solid var(--tinta); padding:7px 10px; font-size:7.6pt; display:flex; flex-direction:column; justify-content:center; gap:3px; min-width:30mm; }
+.box{ display:inline-block; width:9px; height:9px; border:1.2px solid var(--tinta); margin-right:5px; vertical-align:-1px; background:#fff; }
+
+.ficha{ display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--linea); background:#fff; margin-bottom:8px; }
+.ficha div{ padding:5px 8px; border-right:1px solid var(--linea); border-bottom:1px solid var(--linea); font-size:8.4pt; }
+.ficha div:nth-child(4n){ border-right:none; }
+
+.gancho{ display:grid; grid-template-columns:1fr 1fr 1fr; border:1.2px solid var(--bordo); background:var(--bordo-claro); margin-bottom:8px; }
+.nuevo-sec .gancho{ border-color:var(--salvia); background:var(--salvia-claro); }
+.gancho > div{ padding:7px 9px; border-right:1px dashed rgba(0,0,0,.15); }
+.gancho > div:last-child{ border-right:none; }
+.gancho .t{ font-family:'Fraunces',serif; font-size:11pt; font-weight:600; line-height:1.25; }
+.gancho .pantalla{ font-family:'Inter',sans-serif; font-weight:800; letter-spacing:.02em; font-size:10.5pt; text-transform:uppercase; }
+.gancho-tit{ display:flex; justify-content:space-between; align-items:baseline; }
+
+.variantes{ counter-reset:v; margin:0 0 8px; padding:0; list-style:none; }
+.variantes li{ display:grid; grid-template-columns:20px 1fr 1fr; gap:8px; padding:4px 0; border-bottom:1px solid var(--linea); font-size:8.5pt; }
+.variantes li b.l{ font-family:'JetBrains Mono',monospace; color:var(--bordo); }
+.variantes li.rec{ background:var(--oro-claro); }
+.variantes .scr{ font-weight:700; text-transform:uppercase; font-size:7.8pt; letter-spacing:.03em; color:var(--tinta-2); }
+
+/* Guion en riel */
+.riel{ position:relative; margin:4px 0 8px; }
+.beat{ display:grid; grid-template-columns:17mm 34mm 1fr 44mm; gap:0; border-bottom:1px solid var(--linea); background:#fff; }
+.beat > div{ padding:5px 7px; font-size:8.5pt; }
+.beat .tc{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:8pt; background:var(--tinta); color:var(--papel); text-align:center; }
+.beat .pl{ color:var(--tinta-2); font-size:8pt; border-right:1px solid var(--linea); }
+.beat .dice{ font-family:'Fraunces',serif; font-size:9.6pt; }
+.beat .lee{ font-weight:800; text-transform:uppercase; font-size:7.8pt; letter-spacing:.02em; background:var(--papel-2); border-left:2px solid var(--oro); }
+.beat.h > div{ background:var(--papel-2); font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tinta-3); font-weight:600; font-family:'Inter',sans-serif; padding:3px 7px; }
+.beat.h .tc{ background:var(--papel-2); color:var(--tinta-3); }
+
+.check{ list-style:none; padding:0; margin:0; columns:2; column-gap:14px; }
+.check li{ break-inside:avoid; padding:2px 0 2px 16px; position:relative; font-size:8.4pt; }
+.check li::before{ content:''; position:absolute; left:0; top:4px; width:8px; height:8px; border:1.2px solid var(--tinta); background:#fff; }
+.check.one{ columns:1; }
+
+.ad{ border:1.2px solid var(--tinta); background:#fff; }
+.ad .row{ display:grid; grid-template-columns:30mm 1fr; border-bottom:1px solid var(--linea); }
+.ad .row:last-child{ border-bottom:none; }
+.ad .row > div{ padding:5px 8px; font-size:8.5pt; }
+.ad .row > div:first-child{ background:var(--papel-2); font-size:6.8pt; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--tinta-2); }
+
+.nota{ border-left:3px solid var(--oro); padding:4px 9px; background:var(--oro-claro); font-size:8.4pt; margin-bottom:6px; }
+.nota.roja{ border-color:var(--bordo); background:var(--bordo-claro); }
+.mini{ font-size:7.6pt; color:var(--tinta-3); }
+.fuente{ font-size:7.4pt; color:var(--tinta-3); word-break:break-all; }
+.sep{ height:8px; }
+
+/* Cuestionario */
+.q{ display:grid; grid-template-columns:22px 1fr; gap:6px; padding:5px 0 3px; border-bottom:1px solid var(--linea); break-inside:avoid; }
+.q .qn{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--bordo); font-size:8.4pt; padding-top:1px; }
+.q .qt{ font-weight:600; font-size:9pt; }
+.q .qt .star{ color:var(--oro); }
+.q .qh{ font-size:7.8pt; color:var(--tinta-3); margin-top:1px; }
+.q .lineas{ margin-top:4px; }
+.q .lineas i{ display:block; height:15px; border-bottom:1px dotted #b9ae9f; }
+.q .opts{ margin-top:3px; font-size:8.2pt; color:var(--tinta-2); }
+.q .opts span{ margin-right:12px; white-space:nowrap; }
+
+/* Fuente de cada plano */
+.src{ display:inline-block; font-size:6.4pt; font-weight:800; letter-spacing:.06em; padding:1px 5px; border-radius:3px; margin:0 3px 2px 0; color:#fff; vertical-align:1px; }
+.src.G{ background:var(--tinta); } .src.A{ background:var(--oro); } .src.IA{ background:var(--salvia); }
+
+/* Banda de título de cada documento */
+.doc{ display:grid; grid-template-columns:34mm 1fr; border:1.2px solid var(--tinta); margin-bottom:10px; }
+.doc .num{ background:var(--tinta); color:var(--papel); display:flex; flex-direction:column; justify-content:center; align-items:center; padding:8px; }
+.doc .num b{ font-family:'Fraunces',serif; font-size:40pt; font-weight:800; line-height:1; }
+.doc .num small{ font-size:6.5pt; letter-spacing:.2em; text-transform:uppercase; opacity:.85; text-align:center; }
+.doc .tit{ padding:9px 12px; }
+.doc .tit h1{ font-size:21pt; line-height:1.08; margin:4px 0 5px; }
+.doc .tit p{ color:var(--tinta-2); font-size:9.2pt; margin:0; }
+.doc .meta{ display:flex; gap:16px; margin-top:6px; font-size:7.6pt; color:var(--tinta-3); }
+.doc .meta b{ color:var(--tinta); font-weight:600; }
+.indice{ display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:10px; }
+.indice div{ border-top:2px solid var(--tinta); padding-top:4px; font-size:8pt; }
+.indice div.on{ border-top-color:var(--bordo); }
+.indice b{ display:block; font-family:'Fraunces',serif; font-size:10.5pt; }
+
+/* Maqueta de pantalla 9:16 para subtítulos */
+.phone{ width:62mm; height:110.2mm; position:relative; border-radius:6px; overflow:hidden; flex:none;
+  background:linear-gradient(180deg,#2a1013 0%,#5a1a22 35%,#24120f 70%,#0e0a09 100%); font-family:'Montserrat',sans-serif; }
+.phone .luz{ position:absolute; inset:0; background:radial-gradient(circle at 30% 30%,rgba(255,180,120,.35),transparent 40%),radial-gradient(circle at 75% 45%,rgba(200,40,60,.4),transparent 45%); }
+.phone .persona{ position:absolute; left:50%; bottom:22%; transform:translateX(-50%); width:30mm; height:52mm; border-radius:15mm 15mm 4mm 4mm; background:rgba(0,0,0,.45); }
+.phone .zs{ position:absolute; left:3.8mm; right:3.8mm; top:14.06%; bottom:34.9%; border:1px dashed rgba(255,90,90,.9); }
+.phone .pill{ position:absolute; left:4.4mm; top:18%; background:rgba(0,0,0,.6); color:#fff; font-weight:500; font-size:5.6pt; padding:2px 6px; border-radius:20px; }
+.phone .oferta{ position:absolute; left:50%; transform:translateX(-50%); top:27%; background:var(--rojo-marca,#c4161c); color:#fff; font-weight:800; font-size:7pt; padding:4px 8px; border-radius:6px; text-align:center; line-height:1.2; white-space:nowrap; }
+.phone .sub{ position:absolute; left:4.4mm; right:4.4mm; bottom:37%; text-align:center; color:#fff; font-weight:700; font-size:10pt; line-height:1.15; text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 2px rgba(0,0,0,.9); }
+.phone .sub em{ font-style:normal; color:#ff4d55; }
+.phone .botones{ position:absolute; right:2mm; bottom:20%; display:flex; flex-direction:column; gap:3mm; }
+.phone .botones i{ width:4mm; height:4mm; border-radius:50%; background:rgba(255,255,255,.55); display:block; }
+.phone .cap{ position:absolute; left:3mm; bottom:5%; right:12mm; height:6mm; background:rgba(255,255,255,.12); border-radius:2px; }
+.phone .etq{ position:absolute; right:4mm; font-size:5pt; color:rgba(255,120,120,.95); font-family:'JetBrains Mono',monospace; }
+</style></head><body><section class="page"><div class="doc"><div class="num"><small>Trebelno · Agenda 2027</small><b>00</b><small>Estrategia y campaña</small></div>
+    <div class="tit"><span class="chip eco">Campaña Meta Ads · Agenda 2027</span><h1>De dónde partimos, qué está funcionando y cómo invertimos USD 20 por día</h1><p>Resumen de la estrategia, la investigación de la competencia y la estructura de la campaña. Los guiones, el plan de grabación y el de edición van en documentos aparte.</p>
+    <div class="meta"><span>Para: <b>Jona · cliente</b></span><span>Versión: <b>v2 · 15 de noviembre de 2026</b></span><span>Dirección: <b>Jona</b></span><span>Rodaje y edición: <b>Javi</b></span></div></div></div>
+    <div class="indice"><div class="on"><span class="mini">00</span><b>Estrategia y campaña</b><span class="mini">Para Jona y el cliente</span></div><div class=""><span class="mini">01</span><b>Guiones</b><span class="mini">Para quien pone la cara</span></div><div class=""><span class="mini">02</span><b>Plan de grabación</b><span class="mini">Para Javi · filmmaker</span></div><div class=""><span class="mini">03</span><b>Plan de edición</b><span class="mini">Para Javi · editor</span></div></div><div class="sec"><span class="n">1</span><h2>Punto de partida</h2><span class="r">Test 1</span></div>
+    <div class="grid g4">
+      <div class="card"><span class="lbl">Invertido</span><span class="big" style="font-size:17pt">≈ USD 156</span><br><span class="mini">52% de ≈ USD 300 · a confirmar</span></div>
+      <div class="card"><span class="lbl">Mensajes</span><span class="big">325</span><br><span class="mini">≈ USD 0,48 por conversación</span></div>
+      <div class="card"><span class="lbl">Venta cerrada</span><span class="big">$13M</span><br><span class="mini">pagadera en 12 cuotas</span></div>
+      <div class="card oro"><span class="lbl">Ángulo ganador</span><span class="serif" style="font-size:12.5pt">Oferta económica</span><br><span class="mini">cuotas · precio accesible</span></div>
+    </div>
+    <p class="mini" style="margin-top:4px">Con un presupuesto de USD 20 por día, lo más probable es que los ≈ USD 300 fueran el total del test (unos 15 días) y que se haya invertido el 52%. Si en cambio se invirtieron USD 300, el costo fue ≈ USD 0,92 por conversación. Lo confirmamos en el Administrador de anuncios: ese costo es la vara de las reglas de la página siguiente.</p>
+    <div class="grid g3" style="margin-top:6px">
+      <div class="card"><span class="lbl">Lo que funcionó</span>Hablar de plata sin vueltas. Una fiesta de $13M se vende cuando se la piensa como cuota y con la fecha asegurada.</div>
+      <div class="card"><span class="lbl">Lo que renovamos</span>El contenido, que ahora producimos nosotros: persona a cámara, archivo de fiestas reales, testimonios de madres y quinceañeras, y oferta de <b>hasta 24 cuotas</b>.</div>
+      <div class="card"><span class="lbl">Lo que sumamos</span>Dos ángulos que la competencia sostiene en pauta: <b>visita al salón</b> (Open Jano's) y <b>fechas disponibles</b> («Consultá disponibilidad HOY»).</div>
+    </div>
+    <div class="sec" style="margin-top:12px"><span class="n">2</span><h2>Qué está funcionando hoy</h2><span class="r">Competencia · nov 2026</span></div>
+    <div class="grid g2">
+      <div class="card"><span class="lbl">Jano's Eventos · el líder local</span><ul class="lim">
+        <li>≈ 226 anuncios activos en tres páginas con el nombre Jano's/Janos (más una página aparte para empresas).</li>
+        <li>Suben tandas de 15 a 20 anuncios el mismo día: prueban por volumen y dejan los que ganan.</li>
+        <li>Todos llevan a conversación: «Escribinos y conocé el paquete ideal para vos», «Consultá por disponibilidad HOY».</li>
+        <li>Paquetes por niveles (All inclusive, VIP y Ultra VIP) y jornadas «Open Jano's» para conocer el salón.</li>
+        <li>Financiación con anticipo y cuotas, con la fecha y el valor fijados al contratar (según notas de años anteriores).</li></ul></div>
+      <div class="card"><span class="lbl">Mercado y tendencias</span><ul class="lim">
+        <li>Los salones chicos pautan placas con precio y «fechas disponibles», casi sin personas a cámara: <b>esa es nuestra ventaja</b>.</li>
+        <li>Argentina: los 15 se reservan hasta con 3 años de anticipación, y lo más usado es congelar el precio con un anticipo.</li>
+        <li>Afuera: video vertical de recorrido para atraer y testimonio para retargeting (caso de Meta Wedding Park: +90% de conversiones); paquete con precio cerrado y carrusel (caso Hermozo: 4 veces más reservas por mes).</li>
+        <li>Renovar los creativos cada 2 a 4 semanas.</li></ul></div>
+    </div>
+    <p class="fuente" style="margin-top:5px">Fuentes: Biblioteca de anuncios de Meta (15/11/2026) · janoseventos.com · cronista.com (congelar precios de 15 y casamientos) · viapais.com.ar · iprofesional.com · casestudies.com (Facebook: Wedding Park, Hermozo) · tripleseat.com · eventtemple.com. Las páginas de Jano's y El Cronista se leyeron por los resultados de búsqueda.</p></section><section class="page"><div class="sec"><span class="n">3</span><h2>Los seis creativos</h2><span class="r">4 del ángulo ganador + 2 nuevos</span></div><table><tr><th>#</th><th>Ángulo</th><th>Creativo</th><th>Gancho en pantalla</th><th>Conjunto</th></tr><tr><td class="n">01</td><td><span class="chip eco">Ganador</span><br>Cuota mensual</td>
+      <td><b>Hacé la cuenta: tu fiesta 2027 por mes</b></td><td>¿CUÁNTO SALE TU FIESTA 2027 POR MES?</td><td>A</td></tr><tr><td class="n">02</td><td><span class="chip eco">Ganador</span><br>Congelar el precio</td>
+      <td><b>Congelá hoy el precio de tu fiesta 2027</b></td><td>CONGELÁ EL PRECIO DE TU FIESTA 2027</td><td>A</td></tr><tr><td class="n">03</td><td><span class="chip eco">Ganador</span><br>Todo lo que incluye</td>
+      <td><b>Todo lo que entra en tu fiesta 2027</b></td><td>TODO ESTO · HASTA 24 CUOTAS</td><td>A</td></tr><tr><td class="n">04</td><td><span class="chip eco">Ganador</span><br>Testimonios reales</td>
+      <td><b>Lo cuentan ellas: madres y quinceañeras</b></td><td><span class="var">FRASE MADRE 1</span> (resumida)</td><td>A</td></tr><tr><td class="n">05</td><td><span class="chip nuevo">Nuevo</span><br>Visita al salón</td>
+      <td><b>Entrá a tu fiesta 2027 antes de reservarla</b></td><td>ENTRÁ A TU FIESTA 2027</td><td>B</td></tr><tr><td class="n">06</td><td><span class="chip nuevo">Nuevo</span><br>Fechas disponibles 2027</td>
+      <td><b>Agenda 2027: estos sábados ya no están</b></td><td>AGENDA 2027 · YA SE ESTÁ LLENANDO</td><td>B</td></tr></table>
+    <div class="sec" style="margin-top:12px"><span class="n">4</span><h2>Estructura con USD 20 por día</h2><span class="r">≈ USD 600 por mes</span></div>
+    <div class="grid g3">
+      <div class="card tinta"><span class="lbl">Campaña</span><span class="serif" style="font-size:12.5pt">Interacción · Mensajes a WhatsApp</span><br>Semanas 1 y 2: presupuesto por conjunto, para que los ángulos nuevos reciban inversión. Pocos anuncios activos: con USD 20 por día, más anuncios no aprenden.</div>
+      <div class="card"><span class="lbl">Conjunto A · USD 13 por día</span><b>Ángulo ganador</b><br>Creativos 01, 02, 03 y 04 (versión A de cada uno) + el mejor anuncio del test 1 como control. Máximo 5 anuncios.</div>
+      <div class="card"><span class="lbl">Conjunto B · USD 7 por día</span><b>Ángulos nuevos</b><br>Creativos 05 y 06 (versión A). Mismo público que A, para comparar en igualdad.</div>
+    </div>
+    <div class="grid g3" style="margin-top:6px">
+      <div class="card"><span class="lbl">Público</span>Amplio, con Advantage+ y un radio de <span class="var">KM</span> km alrededor del salón. Edad según el evento: padres de 15 años y parejas. Sin intereses al principio.</div>
+      <div class="card"><span class="lbl">Ubicaciones</span>Advantage+, con prioridad en Reels e Historias (9:16). En el feed, la versión 4:5 de 01 y 03.</div>
+      <div class="card"><span class="lbl">Versiones B, C y D</span>No arrancan activas. Entran de a una para reemplazar al anuncio que pierde: así se renueva sin gastar presupuesto en aprendizaje.</div>
+    </div>
+    <h3>Reglas de decisión</h3>
+    <table>
+      <tr><th>Momento</th><th>Qué miramos</th><th>Qué hacemos</th></tr>
+      <tr><td>Día 3</td><td>Tasa de gancho (reproducciones de 3 s ÷ impresiones) mayor a 25%</td><td>Si un anuncio queda abajo, se reemplaza por su versión B.</td></tr>
+      <tr><td>Día 5 a 7 (≈ USD 10–15 por anuncio)</td><td>Costo por conversación contra el del test 1</td><td>Si es más de 1,5 veces el del test 1, se pausa. Si está por debajo, se deja correr.</td></tr>
+      <tr><td>Día 14</td><td>Conversaciones calificadas (dieron fecha e invitados), visitas y señas</td><td>Una sola campaña con presupuesto de campaña (CBO) de USD 20 y los 3 o 4 mejores anuncios.</td></tr>
+      <tr><td>Día 21 a 28</td><td>Frecuencia mayor a 3 o costo en subida</td><td>Renovación: ganchos C y D, actualización del calendario 2027 y una variante con IA.</td></tr>
+    </table>
+    <p class="mini" style="margin-top:4px">Si el cliente quiere crecer, se suma un 20% de presupuesto cada 3 días y nunca sobre un anuncio que empeora. Con USD 20 por día y el costo del test 1 se esperan entre 20 y 40 conversaciones por día.</p>
+</section><section class="page">    <div class="sec" style="margin-top:0"><span class="n">5</span><h2>WhatsApp: donde se gana la venta</h2><span class="r">Para el cliente</span></div>
+    <div class="grid g2">
+      <div class="card"><ul class="lim">
+        <li>Etiquetas en WhatsApp Business: Nuevo · Calificado (dio fecha e invitados) · Visita agendada · Presupuesto enviado · Seña · Perdido.</li>
+        <li>Con esas etiquetas medimos el costo por conversación calificada y el costo por seña, no solo por mensaje.</li></ul></div>
+      <div class="card"><ul class="lim">
+        <li>Responder en menos de 5 minutos, con respuestas rápidas por ángulo: /cuotas, /congelar, /incluye, /visita, /fecha.</li>
+        <li>La primera pregunta siempre es «¿para qué fecha y cuántos invitados?».</li></ul></div>
+    </div>
+    <div class="nota roja" style="margin-top:6px">Meta pide que la escasez y el congelamiento de precio sean reales. Las fechas tachadas del creativo 06 y la fecha límite del 02 se confirman por escrito con el cliente antes de publicar. Las escenas hechas con IA llevan rótulo, como en Menutti.</div><div class="sec" style="margin-top:12px"><span class="n">6</span><h2>Calendario de trabajo</h2><span class="r">Del cuestionario al lanzamiento</span></div>
+    <table>
+      <tr><th>Semana</th><th>Qué pasa</th><th>Quién</th><th>Listo</th></tr>
+      <tr><td>Semana 0</td><td>Cuestionario al cliente · Javi revisa el archivo de fiestas y testimonios (lo que ya tenemos)</td><td>Jona · Javi</td><td><span class="box"></span></td></tr>
+      <tr><td>Semana 1</td><td>Números confirmados · jornada de grabación · tomas para IA</td><td>Cliente · Javi</td><td><span class="box"></span></td></tr>
+      <tr><td>Semana 2</td><td>Edición de las versiones A (6 videos + cortes de 15 s) · revisión · textos de los anuncios cargados</td><td>Javi · Jona</td><td><span class="box"></span></td></tr>
+      <tr><td>Semana 2</td><td>Lanzamiento: conjuntos A y B · respuestas rápidas en WhatsApp listas</td><td>Jona · cliente</td><td><span class="box"></span></td></tr>
+      <tr><td>Semana 3</td><td>Primeras decisiones (día 3 y día 7) · edición de las versiones B</td><td>Jona · Javi</td><td><span class="box"></span></td></tr>
+      <tr><td>Semana 4</td><td>Paso a CBO con los ganadores · informe al cliente</td><td>Jona</td><td><span class="box"></span></td></tr>
+    </table>
+    <div class="sep"></div>
+    <div class="grid g2">
+      <div class="card"><span class="lbl">Lo que entra con cada documento</span><ul class="lim">
+        <li><b>01 Guiones</b>: gancho, variantes, guion segundo a segundo, texto del anuncio y datos a reemplazar.</li>
+        <li><b>02 Plan de grabación</b>: qué se graba, qué sale del archivo, tomas para transformar con IA, jornada y equipo.</li>
+        <li><b>03 Plan de edición</b>: reglas como en Menutti (subtítulos, rótulos, sonido, exportación), flujo de IA y mapa de cada video.</li></ul></div>
+      <div class="card oro"><span class="lbl">Confirmado / a confirmar</span><ul class="lim">
+        <li>✔ Financiación en <b>hasta 24 cuotas</b>.</li>
+        <li>✔ Archivo de fiestas reales y testimonios de quinceañeras y madres.</li>
+        <li>✔ Presupuesto: hasta USD 20 por día.</li>
+        <li>? Si las cuotas son fijas o con ajuste, anticipo, precio de referencia y fechas 2027 ocupadas.</li>
+        <li>? Inversión real del test 1.</li></ul></div>
+    </div></section></body></html>

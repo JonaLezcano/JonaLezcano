@@ -1,5 +1,5 @@
 /* Sistema visual "Claqueta" · Trebelno Recepciones · Agenda 2027 */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Montserrat:wght@500;700;800&display=swap');
 
 :root{
   --papel:#faf6ef;
@@ -154,3 +154,37 @@ td.n{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--bordo
 .q .lineas i{ display:block; height:15px; border-bottom:1px dotted #b9ae9f; }
 .q .opts{ margin-top:3px; font-size:8.2pt; color:var(--tinta-2); }
 .q .opts span{ margin-right:12px; white-space:nowrap; }
+
+/* Fuente de cada plano */
+.src{ display:inline-block; font-size:6.4pt; font-weight:800; letter-spacing:.06em; padding:1px 5px; border-radius:3px; margin:0 3px 2px 0; color:#fff; vertical-align:1px; }
+.src.G{ background:var(--tinta); } .src.A{ background:var(--oro); } .src.IA{ background:var(--salvia); }
+
+/* Banda de título de cada documento */
+.doc{ display:grid; grid-template-columns:34mm 1fr; border:1.2px solid var(--tinta); margin-bottom:10px; }
+.doc .num{ background:var(--tinta); color:var(--papel); display:flex; flex-direction:column; justify-content:center; align-items:center; padding:8px; }
+.doc .num b{ font-family:'Fraunces',serif; font-size:40pt; font-weight:800; line-height:1; }
+.doc .num small{ font-size:6.5pt; letter-spacing:.2em; text-transform:uppercase; opacity:.85; text-align:center; }
+.doc .tit{ padding:9px 12px; }
+.doc .tit h1{ font-size:21pt; line-height:1.08; margin:4px 0 5px; }
+.doc .tit p{ color:var(--tinta-2); font-size:9.2pt; margin:0; }
+.doc .meta{ display:flex; gap:16px; margin-top:6px; font-size:7.6pt; color:var(--tinta-3); }
+.doc .meta b{ color:var(--tinta); font-weight:600; }
+.indice{ display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:10px; }
+.indice div{ border-top:2px solid var(--tinta); padding-top:4px; font-size:8pt; }
+.indice div.on{ border-top-color:var(--bordo); }
+.indice b{ display:block; font-family:'Fraunces',serif; font-size:10.5pt; }
+
+/* Maqueta de pantalla 9:16 para subtítulos */
+.phone{ width:62mm; height:110.2mm; position:relative; border-radius:6px; overflow:hidden; flex:none;
+  background:linear-gradient(180deg,#2a1013 0%,#5a1a22 35%,#24120f 70%,#0e0a09 100%); font-family:'Montserrat',sans-serif; }
+.phone .luz{ position:absolute; inset:0; background:radial-gradient(circle at 30% 30%,rgba(255,180,120,.35),transparent 40%),radial-gradient(circle at 75% 45%,rgba(200,40,60,.4),transparent 45%); }
+.phone .persona{ position:absolute; left:50%; bottom:22%; transform:translateX(-50%); width:30mm; height:52mm; border-radius:15mm 15mm 4mm 4mm; background:rgba(0,0,0,.45); }
+.phone .zs{ position:absolute; left:3.8mm; right:3.8mm; top:14.06%; bottom:34.9%; border:1px dashed rgba(255,90,90,.9); }
+.phone .pill{ position:absolute; left:4.4mm; top:18%; background:rgba(0,0,0,.6); color:#fff; font-weight:500; font-size:5.6pt; padding:2px 6px; border-radius:20px; }
+.phone .oferta{ position:absolute; left:50%; transform:translateX(-50%); top:27%; background:var(--rojo-marca,#c4161c); color:#fff; font-weight:800; font-size:7pt; padding:4px 8px; border-radius:6px; text-align:center; line-height:1.2; white-space:nowrap; }
+.phone .sub{ position:absolute; left:4.4mm; right:4.4mm; bottom:37%; text-align:center; color:#fff; font-weight:700; font-size:10pt; line-height:1.15; text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 2px rgba(0,0,0,.9); }
+.phone .sub em{ font-style:normal; color:#ff4d55; }
+.phone .botones{ position:absolute; right:2mm; bottom:20%; display:flex; flex-direction:column; gap:3mm; }
+.phone .botones i{ width:4mm; height:4mm; border-radius:50%; background:rgba(255,255,255,.55); display:block; }
+.phone .cap{ position:absolute; left:3mm; bottom:5%; right:12mm; height:6mm; background:rgba(255,255,255,.12); border-radius:2px; }
+.phone .etq{ position:absolute; right:4mm; font-size:5pt; color:rgba(255,120,120,.95); font-family:'JetBrains Mono',monospace; }
